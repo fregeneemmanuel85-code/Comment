@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laurel-g-dezyns.netlify.app/sitemap.xml

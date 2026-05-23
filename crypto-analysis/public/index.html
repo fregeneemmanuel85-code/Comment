@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Analytics Dashboard</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://s3.tradingview.com" />
+
+    <!-- Preload critical fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      as="style"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>"
+    />
+
+    <meta
+      name="google-site-verification"
+      content="G3O1JioHHMbFRa185f6Ff4j6nCX4hnKNj8Ss0gZLZUw"
+    />
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="title"
+      content="CryptoAnalytics — Real-Time Crypto Signals & Technical Analysis Dashboard"
+    />
+    <meta
+      name="description"
+      content="Free cryptocurrency analytics dashboard with real-time trading signals, technical indicators (RSI, MACD, SMA), market data, and fear & greed index. Track Bitcoin, Ethereum, and top altcoins."
+    />
+    <meta
+      name="keywords"
+      content="crypto signals, bitcoin trading, ethereum analysis, technical indicators, RSI, MACD, cryptocurrency dashboard, trading signals, fear greed index"
+    />
+    <meta name="author" content="CryptoAnalytics" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://crypto-analysis-flax.vercel.app" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://crypto-analysis-flax.vercel.app" />
+    <meta
+      property="og:title"
+      content="CryptoAnalytics — Real-Time Crypto Signals & Technical Analysis"
+    />
+    <meta
+      property="og:description"
+      content="Free cryptocurrency analytics dashboard with real-time trading signals, technical indicators, and market data."
+    />
+    <meta
+      property="og:image"
+      content="https://crypto-analysis-flax.vercel.app/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://crypto-analysis-flax.vercel.app"
+    />
+    <meta
+      property="twitter:title"
+      content="CryptoAnalytics — Real-Time Crypto Signals & Technical Analysis"
+    />
+    <meta
+      property="twitter:description"
+      content="Free cryptocurrency analytics dashboard with real-time trading signals, technical indicators, and market data."
+    />
+    <meta
+      property="twitter:image"
+      content="https://crypto-analysis.vercel.app/og-image.jpg"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CryptoAnalytics",
+        "description": "Real-time cryptocurrency analytics dashboard with trading signals and technical indicators",
+        "url": "https://crypto-analysis-flax.vercel.app",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fas fa-chart-line"></i>
+          <span>CryptoAnalytics</span>
+        </div>
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <span class="nav-label">Overview</span>
+          <a href="#" class="nav-item active" data-section="market">
+            <i class="fas fa-globe"></i><span>Market Overview</span>
+          </a>
+          <a href="#" class="nav-item" data-section="charts">
+            <i class="fas fa-chart-area"></i><span>Charts & Analysis</span>
+          </a>
+        </div>
+        <div class="nav-section">
+          <span class="nav-label">Trading</span>
+          <a href="#" class="nav-item" data-section="spot">
+            <i class="fas fa-coins"></i><span>Spot Trading</span>
+          </a>
+          <a href="#" class="nav-item" data-section="futures">
+            <i class="fas fa-bolt"></i><span>Futures Trading</span>
+          </a>
+        </div>
+        <div class="nav-section">
+          <span class="nav-label">Signals</span>
+          <a href="#" class="nav-item" data-section="signals">
+            <i class="fas fa-satellite-dish"></i><span>Signal Engine</span>
+          </a>
+          <a href="#" class="nav-item" data-section="indicators">
+            <i class="fas fa-wave-square"></i><span>Technical Indicators</span>
+          </a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="risk-badge">
+          <i class="fas fa-exclamation-triangle"></i
+          ><span>Educational Only</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Search assets..."
+              id="searchInput"
+            />
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-sun"></i>
+          </div>
+
+          <div class="user-profile">
+            <div class="avatar"><i class="fas fa-user"></i></div>
+            <div class="user-info">
+              <span class="user-name">Trader</span>
+              <span class="user-role">Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="fear-greed-widget" id="fearGreedWidget">
+        <span class="fear-greed-loading">Loading...</span>
+      </div>
+
+      <div class="dashboard-content" id="dashboardContent">
+        <section class="section active" id="market-section">
+          <div class="section-header">
+            <h1>Market Overview</h1>
+            <p>Real-time cryptocurrency market data via CoinGecko</p>
+          </div>
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="market-table-container">
+            <div class="table-header">
+              <h3>Top Cryptocurrencies</h3>
+              <div class="table-actions">
+                <span id="dataSourceBadge" class="source-badge"
+                  >Loading...</span
+                >
+                <button class="btn-refresh" id="refreshMarket">
+                  <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="market-table" id="marketTable">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Asset</th>
+                    <th>Price</th>
+                    <th>24h Change</th>
+                    <th>24h Volume</th>
+                    <th>Market Cap</th>
+                    <th>Signal</th>
+                    <th>Action</th>
+                    <th><i class="fas fa-star"></i></th>
+                  </tr>
+                </thead>
+                <tbody id="marketTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div class="watchlist-container">
+          <div class="watchlist-header">
+            <h3><i class="fas fa-star"></i> Your Watchlist</h3>
+            <span class="watchlist-count" id="watchlistCount">0 assets</span>
+          </div>
+          <div class="watchlist-section" id="watchlistSection">
+            <div class="watchlist-empty">
+              <i class="fas fa-star"></i>
+              <p>
+                No assets in watchlist. Click the star icon on any asset to add
+                it here.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <section class="section" id="charts-section">
+          <div class="section-header">
+            <h1>Charts & Analysis</h1>
+            <p>
+              Powered by TradingView — professional charting with built-in
+              indicators
+            </p>
+          </div>
+          <div class="chart-controls">
+            <div class="symbol-selector">
+              <select id="chartSymbol">
+                <option value="BITSTAMP:BTCUSD">BTC/USD</option>
+                <option value="BITSTAMP:ETHUSD">ETH/USD</option>
+                <option value="BINANCE:BNBUSDT">BNB/USDT</option>
+                <option value="COINBASE:SOLUSD">SOL/USD</option>
+                <option value="BITSTAMP:XRPUSD">XRP/USD</option>
+                <option value="BINANCE:ADAUSDT">ADA/USDT</option>
+                <option value="BINANCE:DOTUSDT">DOT/USDT</option>
+                <option value="COINBASE:LINKUSD">LINK/USD</option>
+              </select>
+            </div>
+            <div class="tradingview-info">
+              <i class="fas fa-info-circle"></i>
+              <span
+                >TradingView widget includes RSI, MACD, MA & 100+
+                indicators</span
+              >
+            </div>
+          </div>
+          <div class="tradingview-chart-container">
+            <div id="tradingview-widget"></div>
+          </div>
+          <div class="chart-features">
+            <div class="feature-card">
+              <i class="fas fa-mouse-pointer"></i>
+              <h4>Interactive</h4>
+              <p>
+                Click the indicators button to add RSI, MACD, Bollinger Bands,
+                and more
+              </p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-clock"></i>
+              <h4>Multiple Timeframes</h4>
+              <p>
+                Switch between 1m, 5m, 15m, 1H, 4H, 1D, 1W directly on the chart
+              </p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-draw-polygon"></i>
+              <h4>Drawing Tools</h4>
+              <p>
+                Use trendlines, Fibonacci, support/resistance levels for
+                analysis
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="spot-section">
+          <div class="section-header">
+            <h1>Spot Trading</h1>
+            <p>Trend-based signals with lower risk indicators</p>
+          </div>
+          <div class="spot-grid">
+            <div class="spot-card">
+              <div class="spot-header">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Spot Signal Engine</h3>
+                <span class="risk-badge low">Low Risk</span>
+              </div>
+              <div class="spot-signals" id="spotSignals"></div>
+            </div>
+            <div class="spot-info">
+              <div class="info-card">
+                <h4>Spot Trading Strategy</h4>
+                <ul>
+                  <li>
+                    <i class="fas fa-check"></i> Buy when RSI < 30 (oversold)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Sell when RSI > 70 (overbought)
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Confirm with MA crossover
+                  </li>
+                  <li><i class="fas fa-check"></i> Use MACD for momentum</li>
+                </ul>
+              </div>
+              <div class="info-card risk-info">
+                <h4><i class="fas fa-info-circle"></i> Risk Management</h4>
+                <p>
+                  Spot trading involves buying actual assets. Only invest what
+                  you can afford to lose. Use stop-losses and diversify your
+                  portfolio.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="futures-section">
+          <div class="section-header">
+            <h1>Futures Trading</h1>
+            <p>Advanced signals with leverage and volatility analysis</p>
+          </div>
+          <div class="futures-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <strong>High Risk Warning</strong>
+              <p>
+                Futures trading involves leverage and can result in losses
+                exceeding your initial investment. Not financial advice.
+              </p>
+            </div>
+          </div>
+          <div class="futures-grid">
+            <div class="futures-card">
+              <div class="futures-header">
+                <i class="fas fa-bolt"></i>
+                <h3>Futures Signal Engine</h3>
+                <span class="risk-badge high">High Risk</span>
+              </div>
+              <div class="futures-signals" id="futuresSignals"></div>
+            </div>
+            <div class="futures-metrics">
+              <div class="metric-card">
+                <span class="metric-label">Volatility Index</span>
+                <span class="metric-value" id="volatilityIndex">--</span>
+                <span class="metric-status" id="volatilityStatus">--</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Liquidation Risk</span>
+                <span class="metric-value" id="liqRisk">--</span>
+                <span class="metric-status" id="liqStatus">--</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Leverage Suggestion</span>
+                <span class="metric-value" id="leverageSuggestion">--</span>
+                <span class="metric-desc">Based on volatility</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="signals-section">
+          <div class="section-header">
+            <h1>Signal Engine</h1>
+            <p>Combined technical analysis signals from live market data</p>
+          </div>
+          <div class="signals-dashboard">
+            <div class="signal-summary" id="signalSummary"></div>
+            <div class="signals-table-container">
+              <div class="table-header">
+                <h3>Active Signals</h3>
+                <div class="filter-buttons">
+                  <button class="filter-btn active" data-filter="all">
+                    All
+                  </button>
+                  <button class="filter-btn" data-filter="buy">Buy</button>
+                  <button class="filter-btn" data-filter="sell">Sell</button>
+                  <button class="filter-btn" data-filter="neutral">
+                    Neutral
+                  </button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="market-table" id="signalsTable">
+                  <thead>
+                    <tr>
+                      <th>Asset</th>
+                      <th>Signal</th>
+                      <th>Direction</th>
+                      <th>Confidence</th>
+                      <th>Indicators</th>
+                      <th>Timeframe</th>
+                    </tr>
+                  </thead>
+                  <tbody id="signalsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="indicators-section">
+          <div class="section-header">
+            <h1>Technical Indicators</h1>
+            <p>Computed from CoinGecko OHLCV data</p>
+          </div>
+          <div class="indicators-grid" id="indicatorsGrid"></div>
+        </section>
+      </div>
+
+      <footer class="disclaimer-footer">
+        <div class="disclaimer-content">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>
+            <strong>Disclaimer:</strong> This dashboard provides educational
+            analysis only and is NOT financial advice. Cryptocurrency trading
+            carries substantial risk of loss. Past performance does not
+            guarantee future results. Always do your own research and consult a
+            licensed financial advisor before making investment decisions.
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-F3VGTZL36F"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "G-F3VGTZL36F");
+    </script>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #667eea;
+        --primary-dark: #5a67d8;
+        --secondary: #764ba2;
+        --dark: #1a202c;
+        --gray: #718096;
+        --light-gray: #e2e8f0;
+        --bg: #f7fafc;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.8;
+        color: var(--dark);
+        background: var(--bg);
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        z-index: 100;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Hamburger Menu - 2 Lines */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--dark);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:first-child {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+
+      .hamburger.active span:last-child {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.98);
+          flex-direction: column;
+          padding: 30px;
+          gap: 20px;
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+        }
+
+        .nav-links a {
+          font-size: 1.2rem;
+          padding: 10px 0;
+        }
+      }
+
+      /* Hero Section */
+      .hero-section {
+        margin-top: 70px;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        padding: 80px 20px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+      }
+
+      .hero-section h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .faq-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .faq-header h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      .faq-header p {
+        color: var(--gray);
+        font-size: 1.1rem;
+      }
+
+      /* FAQ Accordion */
+      .faq-item {
+        background: white;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-question {
+        width: 100%;
+        padding: 25px 30px;
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--dark);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        color: var(--primary);
+      }
+
+      .faq-question::after {
+        content: "+";
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--primary);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 20px;
+      }
+
+      .faq-item.active .faq-question::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+      }
+
+      .faq-answer-content {
+        padding: 0 30px 25px;
+        color: #4a5568;
+        line-height: 1.8;
+        font-size: 1rem;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+
+      /* Contact CTA */
+      .contact-cta {
+        background: white;
+        border-radius: 20px;
+        padding: 50px 40px;
+        text-align: center;
+        margin-top: 60px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-cta h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      .contact-cta p {
+        color: var(--gray);
+        margin-bottom: 25px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 80px;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero-section h1 {
+          font-size: 2rem;
+        }
+        .hero-section p {
+          font-size: 1rem;
+        }
+
+        .faq-section {
+          margin: 40px auto;
+        }
+
+        .faq-header h2 {
+          font-size: 1.5rem;
+        }
+
+        .faq-question {
+          padding: 20px;
+          font-size: 1rem;
+        }
+
+        .faq-answer-content {
+          padding: 0 20px 20px;
+        }
+
+        .contact-cta {
+          padding: 35px 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <div class="logo">OE</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <h1>Frequently Asked Questions</h1>
+      <p>Got questions? We've got answers.</p>
+    </header>
+
+    <section class="faq-section">
+      <div class="faq-header">
+        <h2>Common Questions</h2>
+        <p>Everything you need to know about our services</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">What services do you offer?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              I offer a range of frontend development services including
+              responsive website design, React application development, UI/UX
+              implementation, website optimization, and code reviews. Whether
+              you need a simple landing page or a complex web application, I can
+              help bring your vision to life.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does a typical project take?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Project timelines vary based on complexity. A simple landing page
+              might take 1-2 weeks, while a full web application could take 4-8
+              weeks. During our initial consultation, I'll provide a detailed
+              timeline based on your specific requirements and priorities.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What technologies do you work with?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              I specialize in modern frontend technologies including HTML5,
+              CSS3, JavaScript (ES6+), React, Vue.js, Tailwind CSS, and various
+              build tools like Vite and Webpack. I stay up-to-date with industry
+              trends to ensure your project uses the best tools available.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Do you offer ongoing support?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Yes! I offer maintenance packages that include bug fixes,
+              performance monitoring, security updates, and minor feature
+              additions. This ensures your website stays secure, fast, and
+              up-to-date long after the initial launch.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">How do we get started?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Getting started is easy! Simply reach out through the contact form
+              or email me directly. We'll schedule a free consultation to
+              discuss your project, goals, and budget. From there, I'll provide
+              a detailed proposal outlining the scope, timeline, and cost.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What is your pricing structure?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              I offer both project-based pricing and hourly rates depending on
+              your needs. Project-based pricing works best for well-defined
+              scopes, while hourly rates are ideal for ongoing work or projects
+              with evolving requirements. Contact me for a custom quote tailored
+              to your project.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Still have questions?</h3>
+        <p>Can't find the answer you're looking for? Feel free to reach out.</p>
+        <a href="index.html#contact" class="btn">Contact Us</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Official Emi. Built with ❤️ in Nigeria.</p>
+    </footer>
+
+    <script>
+      // Hamburger menu
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+          // Close other items
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item && otherItem.classList.contains("active")) {
+              otherItem.classList.remove("active");
+            }
+          });
+
+          // Toggle current item
+          item.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

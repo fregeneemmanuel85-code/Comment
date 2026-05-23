@@ -1,0 +1,383 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Block Industry</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <body>
+    <div id="progressBar"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+      <div class="logo">
+        <img src="./image/logo1.jpeg" alt="Logo" />
+      </div>
+      <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <img src="./image/hero.jpg" alt="Construction Hero Image" />
+      <div class="hero-text">
+        <h1>Welcome to Smart Blost Industry</h1>
+        <p>
+          Delivering quality construction with experience, skill, and precision.
+        </p>
+        <button>Contact Us</button>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats-section">
+      <div class="stat-box">
+        <h2 class="counter" data-target="50">0</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat-box">
+        <h2 class="counter" data-target="20">0</h2>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-box">
+        <h2 class="counter" data-target="120">0</h2>
+        <p>Skilled Professionals</p>
+      </div>
+      <div class="stat-box">
+        <h2 class="counter" data-target="15">0</h2>
+        <p>Industry Awards</p>
+      </div>
+    </section>
+
+    <!-- ================= WHY CHOOSE US ================= -->
+    <section class="block-section why-choose" id="about">
+      <div class="why-image">
+        <img src="./image/about.jpeg" alt="Why Choose Us" />
+      </div>
+      <div class="why-text">
+        <h2>Why Choose Real Construction</h2>
+        <div class="grid-features">
+          <h3>10+ Years Experience</h3>
+          <h3>Licensed & Insured</h3>
+          <h3>Skilled Team</h3>
+          <h3>High Quality Material</h3>
+          <h3>On Time Delivery</h3>
+          <h3>Our Clients are Priority</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="block-section services" id="services">
+      <h2>Our Services</h2>
+      <div class="scrolling-services" id="serviceCarousel">
+        <div class="service-card">
+          <img src="./image/service1.jpg" alt="" />
+          <p>Concrete Block Production</p>
+        </div>
+        <div class="service-card">
+          <img src="./image/service2.jpg" alt="" />
+          <p>Interlocking & Paving Stones</p>
+        </div>
+        <div class="service-card">
+          <img src="./image/service3.jpeg" alt="" />
+          <p>Bulk Supply & Delivery</p>
+        </div>
+        <div class="service-card">
+          <img src="./image/service4.jpg" alt="" />
+          <p>Custom Orders & Special Sizest</p>
+        </div>
+        <div class="service-card">
+          <img src="./image/service5.jpg" alt="" />
+          <p>Site Inspection & Construction Consultation</p>
+        </div>
+      </div>
+    </section>
+    <section id="blog" class="blog">
+      <h2>Latest Articles</h2>
+
+      <div class="blog-container">
+        <div class="blog-card">
+          <h3>How to Identify Quality Concrete Blocks</h3>
+          <p>
+            Learn how to check strength, durability, and proper curing before
+            purchasing building blocks.
+          </p>
+          <a href="blog1.html" class="read-more-btn">Read More</a>
+        </div>
+
+        <div class="blog-card">
+          <h3>6-Inch vs 9-Inch Blocks</h3>
+          <p>
+            Understand the difference and know which type of block is best for
+            your construction project.
+          </p>
+          <a href="blog2.html" class="read-more-btn">Read More</a>
+        </div>
+
+        <div class="blog-card">
+          <h3>Why Proper Curing Matters</h3>
+          <p>
+            Discover why well-cured blocks prevent cracks and increase building
+            strength.
+          </p>
+          <a href="blog3.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+    </section>
+    <!-- ================= PROJECTS ================= -->
+    <section class="premium-projects block-section" id="projects">
+      <div class="projects-header">
+        <h2>Selected Developments</h2>
+        <div class="filter-buttons">
+          <button class="active" onclick="filterProjects('all', this)">
+            All
+          </button>
+          <button onclick="filterProjects('commercial', this)">
+            Commercial
+          </button>
+          <button onclick="filterProjects('residential', this)">
+            Residential
+          </button>
+          <button onclick="filterProjects('infrastructure', this)">
+            Infrastructure
+          </button>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card fade" data-category="commercial">
+          <img src="./image/project1.jpg" alt="" />
+          <div class="project-overlay">
+            <h3>Residential Building Development</h3>
+            <p>
+              We provide complete block supply and structural support for
+              houses, apartments, and housing estates, ensuring durable and
+              high-quality construction.
+            </p>
+          </div>
+        </div>
+        <div class="project-card fade" data-category="residential">
+          <img src="./image/project2.jpg" alt="" />
+          <div class="project-overlay">
+            <h3>Commercial Property Development</h3>
+            <p>
+              Production and supply of heavy-duty blocks for offices, shops,
+              warehouses, and other commercial structures that require extra
+              strength and reliability.
+            </p>
+          </div>
+        </div>
+        <div class="project-card fade" data-category="infrastructure">
+          <img src="./image/project3.jpg" alt="" />
+          <div class="project-overlay">
+            <h3>Infrastructure & Site Development</h3>
+            <p>
+              Supply of concrete blocks and paving materials for fences,
+              drainage systems, road curbs, and other infrastructure projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ACCREDITATIONS ================= -->
+    <section class="accreditations block-section">
+      <h2>Accreditations & Certifications</h2>
+      <div class="badge-container">
+        <div class="badge">ISO 9001</div>
+        <div class="badge">ISO 14001</div>
+        <div class="badge">ISO 45001</div>
+        <div class="badge">CHAS Approved</div>
+        <div class="badge">Constructionline Gold</div>
+      </div>
+    </section>
+
+    <!-- ================= TEAM ================= -->
+    <section class="team block-section" id="team">
+      <h2>Meet Our Experts</h2>
+      <div class="team-cards">
+        <div class="team-card">
+          <img src="ceo.jpg" alt="CEO" />
+          <h3>John Smith</h3>
+          <p>CEO & Founder</p>
+        </div>
+        <div class="team-card">
+          <img src="architect.jpg" alt="Architect" />
+          <h3>Jane Doe</h3>
+          <p>Lead Architect</p>
+        </div>
+        <div class="team-card">
+          <img src="engineer.jpg" alt="Engineer" />
+          <h3>Mark Allen</h3>
+          <p>Project Manager</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="testimonial-section">
+      <h2>What Our Clients Say</h2>
+
+      <div class="testimonial-wrapper">
+        <button class="prev-arrow">&#10094;</button>
+
+        <div class="testimonials">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <img
+              src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+              alt="James Harrington"
+            />
+            <p>
+              “Outstanding project delivery. The team handled our £45M
+              commercial build with precision and professionalism.”
+            </p>
+            <h4>James Harrington</h4>
+            <span>Commercial Developer</span>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <img
+              src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6"
+              alt="Olivia Bennett"
+            />
+            <p>
+              “Exceptional quality and attention to detail. Delivered ahead of
+              schedule and within budget.”
+            </p>
+            <h4>Olivia Bennett</h4>
+            <span>Property Investor</span>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <img
+              src="https://images.unsplash.com/photo-1603415526960-f8f0d8a7b5a7"
+              alt="Michael Thompson"
+            />
+            <p>
+              “A highly reliable contractor. Communication was seamless from
+              start to completion.”
+            </p>
+            <h4>Michael Thompson</h4>
+            <span>Real Estate Director</span>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <img
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956"
+              alt="Charlotte Williams"
+            />
+            <p>
+              “Their engineering expertise transformed our commercial complex
+              into a landmark property.”
+            </p>
+            <h4>Charlotte Williams</h4>
+            <span>Project Manager</span>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a"
+              alt="Daniel Carter"
+            />
+            <p>
+              “We trust them completely for high-value developments.
+              Professional, transparent, and efficient.”
+            </p>
+            <h4>Daniel Carter</h4>
+            <span>Infrastructure Consultant</span>
+          </div>
+        </div>
+
+        <button class="next-arrow">&#10095;</button>
+      </div>
+    </section>
+    <!-- ================= BLOG ================= -->
+    <section class="blog block-section" id="blog">
+      <h2>Latest Insights</h2>
+      <div class="blog-cards">
+        <div class="blog-card">
+          <img src="blog1.jpg" alt="" />
+          <h3>Green Building Trends 2026</h3>
+          <p>
+            Learn how sustainable materials can cut costs and reduce
+            environmental impact.
+          </p>
+        </div>
+        <div class="blog-card">
+          <img src="blog2.jpg" alt="" />
+          <h3>Managing Large-Scale Projects</h3>
+          <p>
+            Tips for delivering complex projects on time with quality assurance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER / CONTACT ================= -->
+    <footer id="contact">
+      <div class="footer-column contact-column">
+        <h3>Contact Us</h3>
+        <p>Email: info@realconstruction.com</p>
+        <p>Phone: +123 456 7890</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19807.775231081737!2d-0.12775887276473896!3d51.50735062178262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603d6fa2bb9d1%3A0x123456789abcdef!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1690000000000!5m2!1sen!2s"
+            width="90%"
+            height="200"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © <span id="year"></span> Real Construction Solutions. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

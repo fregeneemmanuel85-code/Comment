@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <url>
+        <loc>https://victor-designs.netlify.app/</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://victor-designs.netlify.app/image/https://placehold.co/700x900/1a1a1a/c9a96e?text=Victor+Designs</image:loc>
+            <image:title>Victor Graphic Designer Portfolio Cover</image:title>
+            <image:caption>Featured design work by Victor, graphic designer based in Delta State Nigeria</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://victor-designs.netlify.app/image/project17.jpeg</image:loc>
+            <image:title>Victor Designs - Open Graph Image</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://victor-designs.netlify.app/project.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://victor-designs.netlify.app/image/project10.jpeg</image:loc>
+            <image:title>Spa Bella</image:title>
+            <image:caption>Brand design project by Victor</image:caption>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://victor-designs.netlify.app/resume.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>

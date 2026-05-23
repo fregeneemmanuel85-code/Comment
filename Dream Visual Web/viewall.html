@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects - Dream Visual</title>
+    <link rel="stylesheet" href="viewall.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./image/favicon-32x32.png"
+    />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C4J99NRHL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8C4J99NRHL');
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.min.css" />
+    <link rel="preload" as="image" href="/logo.png" />
+    <link rel="preload" as="image" href="/og-image.jpeg" />
+      </head>
+  <body>
+    <!-- Simple Navigation -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-bold">Dream</span>
+        <span class="brand-light">VISUAL</span>
+      </div>
+      <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+      </a>
+    </nav>
+
+    <!-- Projects Header -->
+    <section class="projects-header">
+      <div class="container">
+        <h1 class="page-title">Our Projects</h1>
+        <p class="page-subtitle">
+          Explore our portfolio of 250+ completed projects across web
+          development, graphic design, and signage
+        </p>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="indoor">Indoor</button>
+          <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+          <button class="filter-btn" data-filter="vehicle">
+            Graphics/Branding
+          </button>
+          <button class="filter-btn" data-filter="web">websites</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+      <div class="container">
+        <div class="projects-grid">
+          <!-- First 9 Projects - Visible -->
+          <div class="project-card visible" data-category="indoor">
+            <div class="project-image">
+              <img src="./image/indoor signage1.jpeg" alt="Office Branding" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Indoor</span>
+              <h3 class="project-title">Corporate Office Branding</h3>
+              <p class="project-description">
+                Complete interior signage and branding solution for tech
+                headquarters
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="outdoor">
+            <div class="project-image">
+              <img src="./image/work12.jpeg" alt="Billboard Design" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Outdoor</span>
+              <h3 class="project-title">City Center Billboard</h3>
+              <p class="project-description">
+                Large-scale outdoor advertising campaign for retail brand
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="vehicle">
+            <div class="project-image">
+              <img src="./image/branded appron.jpeg" alt="Vehicle Wrap" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Branding</span>
+              <h3 class="project-title">Apron Branding</h3>
+              <p class="project-description">
+                Apron branding gives businesses a clean and professional
+                appearance.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="web">
+            <div class="project-image">
+               <video
+              preload="none"
+              playsinline
+              autoplay
+              muted
+              loop
+              style="width: 100%"
+            >
+                <source
+                  src="./videos/V.V Fashion _ Premium E-commerce - Google Chrome 2026-03-08 22-13-38.mp4"
+                  type="video/mp4"
+                />
+                 your browser does not support the video tag
+              </video>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title">E-Commerce Platform</h3>
+              <p class="project-description">
+                Modern responsive E-Commerce website built with frontend:(HTML,
+                CSS AND Javascript). bankend:(node.js)
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="indoor">
+            <div class="project-image">
+              <img src="./image/work14.jpeg" alt="Retail Interior" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Indoor</span>
+              <h3 class="project-title">Retail Store Design</h3>
+              <p class="project-description">
+                Complete store interior and wayfinding system
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="outdoor">
+            <div class="project-image">
+              <img src="./image/signage2.jpeg" alt="Storefront" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Outdoor</span>
+              <h3 class="project-title">Restaurant Storefront</h3>
+              <p class="project-description">
+                Illuminated signage and facade branding
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="vehicle">
+            <div class="project-image">
+              <img src="./image/graphic1.jpeg" alt="Car Wrap" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Graphics</span>
+              <h3 class="project-title">Premium Graphic Design</h3>
+              <p class="project-description">
+                Custom racing graphics. We give you the best
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="web">
+             <video
+              preload="none"
+              playsinline
+              autoplay
+              muted
+              loop
+              style="width: 100%"
+            >
+              <source
+                src="./videos/Evans Industries Limited - The Home of Beauty and 1 more page - Profile 1 - Microsoft​ Edge 2026-03-02 09-31-03.mp4"
+                type="video/mp4"
+              />
+               your browser does not support the video tag
+            </video>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title">Company website</h3>
+              <p class="project-description">
+                Make Your Company Known For Is Unique Workflow Across The Globe
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card visible" data-category="indoor">
+            <div class="project-image">
+              <img
+                src="./image/work1.jpeg
+            "
+                alt="Conference Room"
+              />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Table</span>
+              <h3 class="project-title">Tabble Signage</h3>
+              <p class="project-description">
+                Table signage for offices Building confidence
+              </p>
+            </div>
+          </div>
+
+          <!-- Hidden Projects (9 more) -->
+          <div class="project-card hidden" data-category="Web">
+            <div class="project-image">
+               <video
+              preload="none"
+              playsinline
+              autoplay
+              muted
+              loop
+              style="width: 100%"
+            >
+          
+                <source
+                  src="./videos/Smart Block Industry - Google Chrome 2026-03-08 22-16-46.mp4"
+                  type="video/mp4"
+                />
+                 your browser does not support the video tag
+
+              </video>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title">Industry WebSite</h3>
+              <p class="project-description">
+                Build Your Business With A Simple Modern Website
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="outdoor">
+            <div class="project-image">
+              <img src="./image/car.jpeg" alt="Bus Shelter" iv />
+              />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Outdoor</span>
+              <h3 class="project-title">Bus Shelter Campaign</h3>
+              <p class="project-description">
+                Transit advertising for city-wide product launch
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="vehicle">
+            <div class="project-image">
+              <img src="./image/graphic2 (2).jpeg" alt="Food Truck" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Graphics</span>
+              <h3 class="project-title">Church Program Flyer</h3>
+              <p class="project-description">
+                Church flyers help share messages of faith, hope, and
+                fellowship.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="outdoor">
+            <div class="project-image">
+              <img src="./image/outdoor signage1.jpeg" alt="Lobby" />
+            </div>
+            <div class="project-info">
+              <span class="project-category"> Outdoor</span>
+              <h3 class="project-title">Groceries Place Design</h3>
+              <p class="project-description">
+                Market/Grocery area branding and signage
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="web">
+            <div class="project-image">
+             <video
+              preload="none"
+              playsinline
+              autoplay
+              muted
+              loop
+              style="width: 100%"
+            >
+                <source
+                  src="./videos/Shopping Square _ Premium E-Commerce - Google Chrome 2026-03-08 22-22-05.mp4"
+                  type="video/mp4"
+                />
+                 your browser does not support the video tag
+              </video>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title">E-Commerce Website</h3>
+              <p class="project-description">
+                An e-commerce website allows customers to browse products and shop online easily. 
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="outdoor">
+            <div class="project-image">
+              <img src="./image/outdoor signage2.jpeg" alt="Building Wrap" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Outdoor</span>
+              <h3 class="project-title">
+                Outdoor Signage
+              </h3>
+              <p class="project-description"></p>
+Outdoor signage improves visibility and promotes strong brand recognition. 
+</p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="vehicle">
+            <div class="project-image">
+              <img src="./image/branded nylon.jpeg" alt="Delivery Van" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Graphics</span>
+              <h3 class="project-title">Nylon Branding</h3>
+              <p class="project-description">
+                Nylon branding promotes businesses with durable and practical
+                branded bags.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="project-card hidden"
+            data-category="vehicle
+          "
+          >
+            <div class="project-image">
+              <img src="./image/t shirt1.jpeg" alt="Museum" />
+            </div>
+            <div class="project-info">
+              <span class="project-category">Graphics</span>
+              <h3 class="project-title">T-Shirt Branding</h3>
+              <p class="project-description">
+                T-shirt branding showcases creative designs while promoting your
+                brand.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card hidden" data-category="web">
+            <div class="project-image">
+            <video
+              preload="none"
+              playsinline
+              autoplay
+              muted
+              loop
+              style="width: 100%"
+            >
+                <source
+                  src="./videos/WhatsApp Video 2026-03-08 at 10.54.32 PM.mp4"
+                  type="video/mp4"
+                />
+                 your browser does not support the video tag
+              </video>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Web Development</span>
+              <h3 class="project-title">Creative Company Website</h3>
+              <p class="project-description">
+                We build company website for any kind of company
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button class="btn btn-outline" id="loadMoreBtn">
+            Load More Projects
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Let's create something amazing together</p>
+        <a href="./contact.html" class="btn btn-primary">Start Project</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <span class="brand-bold">Dream</span>
+            <span class="brand-light">VISUAL</span>
+            <p>
+              Premium solutions in Web Development, Graphic Design, Printing &
+              Signage
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Dream Visual. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Load More functionality
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      const hiddenProjects = document.querySelectorAll(".project-card.hidden");
+      let showingAll = false;
+
+      loadMoreBtn.addEventListener("click", () => {
+        if (!showingAll) {
+          // Show all hidden projects
+          hiddenProjects.forEach((project) => {
+            project.classList.remove("hidden");
+            project.classList.add("visible");
+            project.style.animation = "fadeIn 0.5s ease";
+          });
+          loadMoreBtn.textContent = "Show Less";
+          showingAll = true;
+        } else {
+          // Hide extra projects again
+          hiddenProjects.forEach((project) => {
+            project.classList.remove("visible");
+            project.classList.add("hidden");
+          });
+          loadMoreBtn.textContent = "Load More Projects";
+          showingAll = false;
+          // Scroll back to button
+          loadMoreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      // Filter functionality
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const allProjects = document.querySelectorAll(".project-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          allProjects.forEach((card) => {
+            const isVisible = card.classList.contains("visible");
+            const matchesFilter =
+              filter === "all" || card.getAttribute("data-category") === filter;
+
+            if (matchesFilter) {
+              card.style.display = "block";
+              if (isVisible) {
+                card.style.animation = "fadeIn 0.5s ease";
+              }
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // Reset load more button when filtering
+          if (showingAll) {
+            loadMoreBtn.click();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Laurel-G Dezyns & Fashionique</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Portfolio | Fashion Design Gallery | Laurel-G Dezyns Asaba</title>
+    <meta
+      name="description"
+      content="View our curated collection of bespoke fashion designs, bridal gowns, corporate wear and casual clothing in Asaba."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://laurel-g-dezyns.netlify.app/portfolio.html"
+    />
+
+    <meta
+      property="og:title"
+      content="Fashion Portfolio | Laurel-G Dezyns Asaba"
+    />
+    <meta
+      property="og:description"
+      content="Explore our fashion gallery and designs."
+    />
+    <meta
+      property="og:image"
+      content="https://laurel-g-dezyns.netlify.app/images/og-portfolio.jpeg"
+    />
+
+    <!-- AOS ANIMATION LIBRARY -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./portfolio.css" />
+    <link rel="stylesheet" href="./cookies.css" />
+  </head>
+  <body>
+    <!-- PRELOADER -->
+    <div class="preloader">
+      <div class="preloader-content">
+        <span class="preloader-text">Portfolio</span>
+        <div class="preloader-line"></div>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Laurel-G</span>
+          <span class="logo-sub">Dezyns & Fashionique</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li>
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+          </li>
+          <li><a href="index.html#process" class="nav-link">Process</a></li>
+          <li>
+            <a href="index.html#testimonials" class="nav-link">Reviews</a>
+          </li>
+          <li><a href="index.html#blog" class="nav-link">Journal</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li>
+            <a href="index.html#contact" class="nav-link cta-nav">Contact</a>
+          </li>
+        </ul>
+
+        <button class="hamburger" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- PORTFOLIO HERO -->
+    <section class="portfolio-hero">
+      <div class="portfolio-hero-bg">
+        <div class="portfolio-hero-overlay"></div>
+      </div>
+      <div class="portfolio-hero-content" data-aos="fade-up">
+        <span class="section-tag">Our Work</span>
+        <h1 class="portfolio-hero-title">The Portfolio</h1>
+        <p class="portfolio-hero-subtitle">
+          A curated collection of our finest creations, from haute couture to
+          ready-to-wear masterpieces
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTER TABS -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-tabs" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">All Works</button>
+          <button class="filter-btn" data-filter="bridal">Bridal</button>
+          <button class="filter-btn" data-filter="evening">Evening Wear</button>
+          <button class="filter-btn" data-filter="corporate">Corporate</button>
+          <button class="filter-btn" data-filter="casual">Casual</button>
+          <button class="filter-btn" data-filter="accessories">
+            Simple Gown
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO GRID - 10 IMAGES -->
+    <section class="portfolio-gallery" id="portfolio">
+      <div class="container">
+        <div class="portfolio-grid">
+          <!-- Image 1 - Bridal -->
+          <div
+            class="portfolio-item bridal"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div class="portfolio-image">
+              <img
+                src="./images/design4.jpeg"
+                alt="Ivory Dreams Bridal Collection"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Bridal</span>
+                  <h3>Ivory Dreams</h3>
+                  <p>
+                    Traditional meets contemporary in this stunning bridal
+                    masterpiece
+                  </p>
+                  <button class="view-btn" onclick="openLightbox(0)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 2 - Evening Wear -->
+          <div
+            class="portfolio-item evening wide"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="portfolio-image">
+              <img
+                src="./images/brand2.jpeg"
+                alt="Crimson Elegance Evening Gown"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Evening Wear</span>
+                  <h3>Crimson Elegance</h3>
+                  <p>A bold statement piece for the modern woman</p>
+                  <button class="view-btn" onclick="openLightbox(1)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 3 - Corporate -->
+          <div
+            class="portfolio-item corporate"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="portfolio-image">
+              <img src="./images/design3.jpeg" alt="Executive Power Suit" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Corporate</span>
+                  <h3>Executive Power</h3>
+                  <p>Command the boardroom with confidence and style</p>
+                  <button class="view-btn" onclick="openLightbox(2)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 4 - Casual -->
+          <div
+            class="portfolio-item casual tall"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="portfolio-image">
+              <img src="./images/service2.jpg" alt="Urban Street Style" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Casual</span>
+                  <h3>Urban Street</h3>
+                  <p>Effortless style for the city dweller</p>
+                  <button class="view-btn" onclick="openLightbox(3)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 5 - Accessories -->
+          <div
+            class="portfolio-item accessories"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="portfolio-image">
+              <img src="./images/service3.jpg" alt="Luxury Leather Handbag" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Simple Gown</span>
+                  <h3>Simple Luxery Gown</h3>
+                  <p>Simple and elegant for the discerning client</p>
+                  <button class="view-btn" onclick="openLightbox(4)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 6 - Bridal -->
+          <div
+            class="portfolio-item bridal tall"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="portfolio-image">
+              <img src="./images/design7.jpeg" alt="Royal Wedding Collection" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Bridal</span>
+                  <h3>Royal Wedding</h3>
+                  <p>Regal elegance for your special day</p>
+                  <button class="view-btn" onclick="openLightbox(5)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 7 - Evening Wear -->
+          <div
+            class="portfolio-item evening"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="portfolio-image">
+              <img src="./images/design5.jpeg" alt="Midnight Gala Gown" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Evening Wear</span>
+                  <h3>Midnight Gala</h3>
+                  <p>Sophisticated glamour for exclusive events</p>
+                  <button class="view-btn" onclick="openLightbox(6)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 8 - Corporate -->
+          <div
+            class="portfolio-item corporate wide"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="portfolio-image">
+              <img
+                src="./images/brand6.jpeg"
+                alt="Modern Professional Collection"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Corporate</span>
+                  <h3>Modern Professional</h3>
+                  <p>Redefining office wear with contemporary flair</p>
+                  <button class="view-btn" onclick="openLightbox(7)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 9 - Casual -->
+          <div
+            class="portfolio-item casual"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div class="portfolio-image">
+              <img src="./images/design10.jpeg" alt="Weekend Chic Collection" />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Casual</span>
+                  <h3>Weekend Chic</h3>
+                  <p>Relaxed elegance for your days off</p>
+                  <button class="view-btn" onclick="openLightbox(8)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image 10 - Accessories -->
+          <div
+            class="portfolio-item accessories"
+            data-aos="fade-up"
+            data-aos-delay="900"
+          >
+            <div class="portfolio-image">
+              <img
+                src="./images/design8.jpeg"
+                alt="Statement Jewelry Collection"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-info">
+                  <span class="portfolio-category">Simple Gown</span>
+                  <h3>Statement Pieces</h3>
+                  <p>Simple and bold to complete any ensemble</p>
+                  <button class="view-btn" onclick="openLightbox(9)">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="portfolio-cta">
+      <div class="container">
+        <div class="cta-content" data-aos="zoom-in">
+          <h2>Have a Project in Mind?</h2>
+          <p>
+            Let's create something beautiful together. Book a consultation with
+            our design team.
+          </p>
+          <a href="index.html#contact" class="btn btn-primary btn-large">
+            Start Your Project
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+              <span class="logo-text">Laurel-G</span>
+              <span class="logo-sub">Dezyns & Fashionique</span>
+            </a>
+            <p>
+              Redefining fashion through innovation, craftsmanship, and
+              personalized service since 2020.
+            </p>
+            <div class="footer-social">
+              <a
+                href="https://www.instagram.com/laurel_g_dezyns_?igsh=djZ1OTZvMWl0bHQ5"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/share/1GitdqwwGx/"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="./bespoke.html">Bespoke Design</a></li>
+
+              <li><a href="./corporate.html">Corporate Styling</a></li>
+              <li><a href="./Alterations.html">Alterations</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Contact</h4>
+            <ul>
+              <li>No 8 Joy Chichi At Agric Road</li>
+              <li>Asaba ,Delta State</li>
+              <li>+234 913 464 2716</li>
+              <li>iboyilaura401@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Laurel-G Dezyns and Fashionique. All rights reserved.
+          </p>
+          <p>
+            Crafted with
+            <svg
+              class="fill"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+              />
+            </svg>
+            in Delta State, Nigeria
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()">
+          &times;
+        </button>
+        <button class="lightbox-nav prev" onclick="changeImage(-1)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <img id="lightbox-img" src="" alt="" />
+        <div class="lightbox-info">
+          <span id="lightbox-category" class="lightbox-category"></span>
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-desc"></p>
+        </div>
+        <button class="lightbox-nav next" onclick="changeImage(1)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./portfolio.js"></script>
+    <script src="./seo-config.js"></script>
+    <script src="./cookies.js"></script>
+  </body>
+</html>

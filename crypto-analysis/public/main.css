@@ -1,0 +1,479 @@
+/* ============================================
+   FEAR & GREED WIDGET
+   ============================================ */
+.fear-greed-widget {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 400px;
+}
+
+.fear-greed-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1;
+}
+
+.fear-greed-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fear-greed-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-primary);
+  border-radius: 4px;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.fear-greed-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.fear-greed-loading {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   WATCHLIST
+   ============================================ */
+.watchlist-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.watchlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.watchlist-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--warning);
+}
+
+.watchlist-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.watchlist-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.watchlist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.watchlist-item:hover {
+  background: var(--bg-hover);
+}
+
+.watchlist-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.watchlist-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.watchlist-symbol {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.watchlist-name {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.watchlist-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.watchlist-price {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.watchlist-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.watchlist-change.up {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--secondary);
+}
+
+.watchlist-change.down {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+.watchlist-mtf {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.watchlist-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: var(--transition);
+}
+
+.watchlist-remove:hover {
+  color: var(--danger);
+}
+
+.watchlist-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+.watchlist-empty i {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+
+.watchlist-empty p {
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   WATCHLIST BUTTON IN TABLE
+   ============================================ */
+.watchlist-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.watchlist-btn:hover {
+  color: var(--warning);
+  transform: scale(1.1);
+}
+
+.watchlist-btn.watched {
+  color: var(--warning);
+}
+
+/* ============================================
+   MULTI-TIMEFRAME BADGE
+   ============================================ */
+.mtf-badge {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 0.25rem;
+  background: var(--bg-primary);
+}
+
+/* Mobile responsive for new components */
+@media (max-width: 768px) {
+  .fear-greed-widget {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+
+  .fear-greed-bar {
+    width: 100%;
+  }
+
+  .watchlist-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .watchlist-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+}
+/* Signal Engine Table Styles */
+.signals-table-container {
+  margin-top: 1.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--hover);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* TradingView container fix */
+.tradingview-chart-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+
+  /* TradingView container */
+  .tradingview-chart-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+  }
+
+  #tradingview-widget {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Signal table styles */
+  .signals-table-container {
+    margin-top: 1.5rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover {
+    background: var(--hover);
+  }
+
+  .filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+}
+/* ============================================
+   MOBILE SIDEBAR — FINAL
+   ============================================ */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    margin-left: 0;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+.futures-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.futures-tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.futures-tab:hover {
+  background: var(--hover);
+}
+
+.futures-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.signal-style {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.style-scalp {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--warning);
+}
+
+.style-swing {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--info);
+}
+
+.hold-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.source-badge.computing {
+  background: #f59e0b;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.empty-state.computing {
+  color: #f59e0b;
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-state.computing i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.warmup-btn {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.warmup-btn:hover {
+  background: #d97706;
+}
+
+.warmup-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service |Frontend Developer</title>
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-light: #818cf8;
+        --bg-dark: #0f0f1a;
+        --bg-card: #1a1a2e;
+        --text-light: #ffffff;
+        --text-muted: #94a3b8;
+        --border-light: rgba(255, 255, 255, 0.1);
+        --transition-smooth: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(15, 15, 26, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-light);
+        text-decoration: none;
+      }
+
+      .nav-logo span {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition-smooth);
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--text-light);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition-smooth);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .legal-page {
+        padding: 8rem 5% 5rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .legal-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .legal-eyebrow {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+
+      .legal-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .legal-updated {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .legal-content {
+        background: var(--bg-card);
+        border-radius: 1.5rem;
+        padding: 3rem;
+        border: 1px solid var(--border-light);
+      }
+
+      .legal-section {
+        margin-bottom: 3rem;
+      }
+
+      .legal-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .legal-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .legal-section h2::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .legal-section h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      .legal-section p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .legal-section ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .legal-section li {
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .legal-section strong {
+        color: var(--text-light);
+      }
+
+      .legal-section a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      .legal-section a:hover {
+        color: var(--primary-light);
+        text-decoration: underline;
+      }
+
+      .highlight-box {
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box p {
+        margin-bottom: 0;
+      }
+
+      .contact-box {
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .contact-box p {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-light);
+        padding: 3rem 5%;
+        margin-top: 5rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: var(--transition-smooth);
+      }
+
+      .footer-links a:hover {
+        color: var(--text-light);
+      }
+
+      .footer-copyright {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .legal-title {
+          font-size: 2rem;
+        }
+        .legal-content {
+          padding: 2rem 1.5rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Official<span>Emi</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="legal-page">
+      <header class="legal-header">
+        <span class="legal-eyebrow">Legal</span>
+        <h1 class="legal-title">Terms of Service</h1>
+        <p class="legal-updated">Last updated: April 8, 2026</p>
+      </header>
+
+      <article class="legal-content">
+        <section class="legal-section">
+          <h2>Agreement to Terms</h2>
+          <p>
+            By accessing or using this website and my services, you agree to be
+            bound by these Terms of Service. If you disagree with any part of
+            these terms, you may not access the website or use my services.
+          </p>
+          <div class="highlight-box">
+            <p>
+              <strong>Please read carefully:</strong> These terms constitute a
+              legally binding agreement between you and me regarding your use of
+              this website and any services provided.
+            </p>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <h2>Services Description</h2>
+          <p>
+            I provide frontend web development services including but not
+            limited to:
+          </p>
+          <ul>
+            <li>Website design and development</li>
+            <li>Responsive web application development</li>
+            <li>UI/UX implementation</li>
+            <li>Website maintenance and updates</li>
+            <li>Performance optimization</li>
+            <li>Technical consultation</li>
+          </ul>
+          <p>
+            All services are subject to availability and may be modified or
+            discontinued at any time with reasonable notice.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Project Engagement</h2>
+          <h3>Project Proposals</h3>
+          <p>All projects begin with a detailed proposal outlining:</p>
+          <ul>
+            <li>Project scope and requirements</li>
+            <li>Timeline and milestones</li>
+            <li>Total cost and payment terms</li>
+            <li>Deliverables</li>
+            <li>Revision policy</li>
+          </ul>
+
+          <h3>Client Responsibilities</h3>
+          <p>As a client, you agree to:</p>
+          <ul>
+            <li>Provide clear project requirements and timely feedback</li>
+            <li>
+              Supply all necessary content (text, images, logos) in a timely
+              manner
+            </li>
+            <li>Review and approve work at designated milestones</li>
+            <li>Make payments according to the agreed schedule</li>
+            <li>
+              Obtain necessary rights/licenses for any materials you provide
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>Payment Terms</h2>
+          <h3>Pricing</h3>
+          <p>
+            Project pricing is determined based on scope, complexity, and
+            timeline. All prices are quoted in Nigerian Naira (NGN) or US
+            Dollars (USD) as agreed.
+          </p>
+
+          <h3>Payment Structure</h3>
+          <ul>
+            <li>
+              <strong>Deposit:</strong> 50% upfront payment required to begin
+              work
+            </li>
+            <li>
+              <strong>Milestone Payments:</strong> Additional payments at agreed
+              milestones
+            </li>
+            <li>
+              <strong>Final Payment:</strong> Remaining balance due before final
+              delivery
+            </li>
+          </ul>
+
+          <h3>Late Payments</h3>
+          <p>Work may be paused if payments are more than 7 days overdue.</p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Intellectual Property</h2>
+          <h3>Ownership Transfer</h3>
+          <p>Upon full payment:</p>
+          <ul>
+            <li>You receive full ownership rights to the final deliverables</li>
+            <li>I retain the right to display the work in my portfolio</li>
+            <li>I retain rights to reusable code components and frameworks</li>
+          </ul>
+
+          <h3>Third-Party Assets</h3>
+          <p>
+            I may use third-party libraries, frameworks, and assets (fonts,
+            icons, stock images) in projects. These remain subject to their
+            original licenses. You are responsible for obtaining licenses for
+            any premium assets you request.
+          </p>
+
+          <h3>Pre-Existing Work</h3>
+          <p>
+            I retain all rights to my pre-existing code, tools, and
+            methodologies used in your project.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Revisions and Changes</h2>
+          <h3>Included Revisions</h3>
+          <p>
+            Each project includes a specified number of revision rounds as
+            outlined in the proposal. Additional revisions beyond this scope may
+            incur extra charges.
+          </p>
+
+          <h3>Scope Changes</h3>
+          <p>Changes to project scope after work has begun may result in:</p>
+          <ul>
+            <li>Additional charges</li>
+            <li>Timeline extensions</li>
+            <li>A revised project proposal</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>Project Timeline</h2>
+          <p>
+            Project timelines are estimates based on the agreed scope. Delays
+            may occur due to:
+          </p>
+          <ul>
+            <li>Late delivery of client materials</li>
+            <li>Delayed feedback or approvals</li>
+            <li>Scope changes</li>
+            <li>Technical complexities discovered during development</li>
+            <li>Force majeure events</li>
+          </ul>
+          <p>
+            I will communicate any timeline changes promptly and work to
+            minimize delays.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Confidentiality</h2>
+          <p>
+            I respect the confidentiality of your business information. I agree
+            to:
+          </p>
+          <ul>
+            <li>Keep all proprietary information confidential</li>
+            <li>
+              Not disclose project details to third parties without permission
+            </li>
+            <li>Use your information solely for project purposes</li>
+          </ul>
+          <p>
+            This obligation survives the termination of our working
+            relationship.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law:</p>
+          <ul>
+            <li>
+              I am not liable for any indirect, incidental, or consequential
+              damages
+            </li>
+            <li>
+              My total liability is limited to the amount paid for the specific
+              project
+            </li>
+            <li>
+              I am not responsible for losses due to factors beyond my
+              reasonable control
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>Warranty and Support</h2>
+          <h3>Workmanship Warranty</h3>
+          <p>
+            I provide a 30-day warranty on all deliverables to fix any bugs or
+            issues arising from my code, provided:
+          </p>
+          <ul>
+            <li>The issue is reported within 30 days of delivery</li>
+            <li>
+              No modifications have been made to the code by third parties
+            </li>
+            <li>
+              The issue is not caused by third-party services or hosting
+              problems
+            </li>
+          </ul>
+
+          <h3>Ongoing Support</h3>
+          <p>
+            After the warranty period, support and maintenance are available
+            through separate maintenance agreements.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Termination</h2>
+          <h3>By Client</h3>
+          <p>
+            You may terminate the project at any time with written notice. You
+            will be responsible for payment for all work completed up to the
+            termination date.
+          </p>
+
+          <h3>By Developer</h3>
+          <p>I reserve the right to terminate a project if:</p>
+          <ul>
+            <li>Payments are significantly overdue</li>
+            <li>Client behaves unprofessionally or unethically</li>
+            <li>Project requirements become unfeasible</li>
+            <li>Force majeure prevents completion</li>
+          </ul>
+          <p>In such cases, you will receive deliverables for all paid work.</p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Website Use</h2>
+          <h3>Acceptable Use</h3>
+          <p>When using this website, you agree not to:</p>
+          <ul>
+            <li>Use the website for any unlawful purpose</li>
+            <li>
+              Attempt to gain unauthorized access to any part of the website
+            </li>
+            <li>Interfere with the website's security features</li>
+            <li>Scrape or copy content without permission</li>
+            <li>Transmit malware or harmful code</li>
+          </ul>
+
+          <h3>Content</h3>
+          <p>
+            All content on this website (text, images, code, design) is my
+            intellectual property unless otherwise stated. You may not
+            reproduce, distribute, or create derivative works without
+            permission.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Changes to Terms</h2>
+          <p>
+            I may modify these Terms at any time. Changes will be effective
+            immediately upon posting. Your continued use of the website or
+            services constitutes acceptance of the modified Terms.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Contact Information</h2>
+          <p>If you have any questions about these Terms, please contact me:</p>
+          <div class="contact-box">
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:dreamvisual011@gmail.com"
+                >dreamvisual011@gmail.com</a
+              >
+            </p>
+            <p><strong>Location:</strong> Asaba, Delta State Nigeria</p>
+            <p><strong>Business Hours:</strong> Monday - Saturday, 24 hrs</p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links"></div>
+        <p class="footer-copyright">
+          © 2026 Official Emi. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

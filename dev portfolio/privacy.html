@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Frontend Developer</title>
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-light: #818cf8;
+        --bg-dark: #0f0f1a;
+        --bg-card: #1a1a2e;
+        --text-light: #ffffff;
+        --text-muted: #94a3b8;
+        --border-light: rgba(255, 255, 255, 0.1);
+        --transition-smooth: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1.5rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(15, 15, 26, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-light);
+        text-decoration: none;
+      }
+
+      .nav-logo span {
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition-smooth);
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--text-light);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition-smooth);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .legal-page {
+        padding: 8rem 5% 5rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .legal-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .legal-eyebrow {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+
+      .legal-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .legal-updated {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .legal-content {
+        background: var(--bg-card);
+        border-radius: 1.5rem;
+        padding: 3rem;
+        border: 1px solid var(--border-light);
+      }
+
+      .legal-section {
+        margin-bottom: 3rem;
+      }
+
+      .legal-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .legal-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .legal-section h2::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .legal-section h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin: 1.5rem 0 0.75rem;
+      }
+
+      .legal-section p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .legal-section ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .legal-section li {
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .legal-section a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      .legal-section a:hover {
+        color: var(--primary-light);
+        text-decoration: underline;
+      }
+
+      .contact-box {
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .contact-box p {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-box strong {
+        color: var(--text-light);
+      }
+
+      .footer {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-light);
+        padding: 3rem 5%;
+        margin-top: 5rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: var(--transition-smooth);
+      }
+
+      .footer-links a:hover {
+        color: var(--text-light);
+      }
+
+      .footer-copyright {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .legal-title {
+          font-size: 2rem;
+        }
+        .legal-content {
+          padding: 2rem 1.5rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Official<span>Emi</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="legal-page">
+      <header class="legal-header">
+        <span class="legal-eyebrow">Legal</span>
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-updated">Last updated: April 8, 2026</p>
+      </header>
+
+      <article class="legal-content">
+        <section class="legal-section">
+          <h2>Introduction</h2>
+          <p>
+            Welcome to my portfolio website. I respect your privacy and am
+            committed to protecting your personal data. This Privacy Policy
+            explains how I collect, use, and safeguard your information when you
+            visit this website.
+          </p>
+          <p>
+            By using this website, you agree to the collection and use of
+            information in accordance with this policy.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Information I Collect</h2>
+          <h3>Personal Information</h3>
+          <p>When you contact me through the contact form, I may collect:</p>
+          <ul>
+            <li>Your name</li>
+            <li>Email address</li>
+            <li>Phone number (if provided)</li>
+            <li>Message content</li>
+            <li>Project details you choose to share</li>
+          </ul>
+
+          <h3>Automatically Collected Information</h3>
+          <p>When you visit this website, I may automatically collect:</p>
+          <ul>
+            <li>IP address</li>
+            <li>Browser type and version</li>
+            <li>Operating system</li>
+            <li>Pages visited and time spent</li>
+            <li>Referring website</li>
+            <li>Device information</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>How I Use Your Information</h2>
+          <p>I use the collected information for the following purposes:</p>
+          <ul>
+            <li>
+              <strong>To respond to inquiries:</strong> Replying to your
+              messages and project requests
+            </li>
+            <li>
+              <strong>To provide services:</strong> Delivering web development
+              services you request
+            </li>
+            <li>
+              <strong>To improve the website:</strong> Analyzing usage patterns
+              to enhance user experience
+            </li>
+            <li>
+              <strong>To communicate:</strong> Sending updates about your
+              project or relevant information
+            </li>
+            <li>
+              <strong>For legal compliance:</strong> Meeting legal obligations
+              when required
+            </li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>Cookies and Tracking</h2>
+          <p>
+            This website uses cookies and similar tracking technologies to
+            enhance your browsing experience. Cookies are small text files
+            stored on your device.
+          </p>
+          <h3>Types of Cookies Used:</h3>
+          <ul>
+            <li>
+              <strong>Essential Cookies:</strong> Required for the website to
+              function properly
+            </li>
+            <li>
+              <strong>Analytics Cookies:</strong> Help me understand how
+              visitors interact with the website (Google Analytics)
+            </li>
+            <li>
+              <strong>Preference Cookies:</strong> Remember your settings and
+              preferences
+            </li>
+          </ul>
+          <p>
+            You can control cookies through your browser settings. However,
+            disabling cookies may affect the functionality of this website.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Third-Party Services</h2>
+          <p>
+            I may use third-party services that collect, monitor, and analyze
+            information:
+          </p>
+          <ul>
+            <li>
+              <strong>Google Analytics:</strong> For website traffic analysis
+            </li>
+            <li>
+              <strong>Hosting Provider:</strong> For website hosting and
+              security
+            </li>
+            <li>
+              <strong>Email Services:</strong> For communication and contact
+              form delivery
+            </li>
+          </ul>
+          <p>
+            These third parties have their own privacy policies governing how
+            they use your information.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Data Security</h2>
+          <p>
+            I take reasonable measures to protect your personal information:
+          </p>
+          <ul>
+            <li>Using secure hosting with SSL encryption</li>
+            <li>Regular security updates and monitoring</li>
+            <li>Limited access to personal information</li>
+            <li>
+              Not storing sensitive payment information (all payments processed
+              through secure third-party providers)
+            </li>
+          </ul>
+          <p>
+            However, no method of transmission over the internet is 100% secure.
+            While I strive to protect your data, I cannot guarantee absolute
+            security.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Your Data Rights</h2>
+          <p>Depending on your location, you may have the following rights:</p>
+          <ul>
+            <li>
+              <strong>Access:</strong> Request a copy of your personal data
+            </li>
+            <li>
+              <strong>Correction:</strong> Request correction of inaccurate data
+            </li>
+            <li>
+              <strong>Deletion:</strong> Request deletion of your personal data
+            </li>
+            <li>
+              <strong>Restriction:</strong> Request limitation of processing
+            </li>
+            <li><strong>Portability:</strong> Request transfer of your data</li>
+            <li>
+              <strong>Objection:</strong> Object to processing of your data
+            </li>
+          </ul>
+          <p>
+            To exercise these rights, please contact me using the information
+            below.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Data Retention</h2>
+          <p>
+            I retain your personal information only for as long as necessary to:
+          </p>
+          <ul>
+            <li>Provide the services you requested</li>
+            <li>Comply with legal obligations</li>
+            <li>Resolve disputes</li>
+            <li>Enforce agreements</li>
+          </ul>
+          <p>
+            Contact form submissions are typically retained for 12 months unless
+            a business relationship is established.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Children's Privacy</h2>
+          <p>
+            This website is not intended for children under 13 years of age. I
+            do not knowingly collect personal information from children under
+            13. If you are a parent or guardian and believe your child has
+            provided personal information, please contact me to have it removed.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Changes to This Policy</h2>
+          <p>
+            I may update this Privacy Policy from time to time. Changes will be
+            posted on this page with an updated revision date. I encourage you
+            to review this policy periodically.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>Contact Information</h2>
+          <p>
+            If you have any questions about this Privacy Policy or my data
+            practices, please contact me:
+          </p>
+          <div class="contact-box">
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:dreamvisual011@gmail.com"
+                >dreamvisual011@gmail.com</a
+              >
+            </p>
+            <p><strong>Location:</strong> Asaba, Delta State Nigeria</p>
+            <p><strong>Response Time:</strong> Within 24 hours</p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links"></div>
+        <p class="footer-copyright">
+          © 2026 Official Emi. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

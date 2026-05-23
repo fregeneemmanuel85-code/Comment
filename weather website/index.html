@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Atmosphere" />
+    <meta
+      name="description"
+      content="Real-time weather with rain alerts and radar"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+    />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.weatherapi.com/weather/192x192/day/116.png"
+    />
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="72x72" href="icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="96x96" href="icon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128x128.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png" />
+
+    <title>Atmosphere | Weather</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="robots" content="index, follow" />
+    <!-- Primary Meta -->
+    <title>Atmosphere | Real-Time Weather, Rain Alerts & Radar</title>
+    <meta
+      name="description"
+      content="Get accurate real-time weather forecasts, rain alerts, and live radar maps. Track hourly conditions, UV index, and 3-day forecasts for any city worldwide."
+    />
+    <meta
+      name="keywords"
+      content="weather app, weather forecast, rain alerts, weather radar, hourly forecast, UV index, local weather, real-time weather"
+    />
+    <meta name="author" content="Atmosphere" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://weather-atmosphere-app.netlify.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://weather-atmosphere-app.netlify.app/"
+    />
+    <meta
+      property="og:title"
+      content="Atmosphere | Real-Time Weather & Rain Alerts"
+    />
+    <meta
+      property="og:description"
+      content="Accurate weather forecasts with live radar, rain alerts, and hourly tracking."
+    />
+    <meta
+      name="google-site-verification"
+      content="OFm3nqtpd1fJHi1NiptrY4zi7citkeY66v33CqjN-cE"
+    />
+    <meta
+      property="og:image"
+      content="https://weather-atmosphere-app.netlify.app/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Atmosphere" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://weather-atmosphere-app.netlify.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="Atmosphere | Real-Time Weather & Rain Alerts"
+    />
+    <meta
+      property="twitter:description"
+      content="Accurate weather forecasts with live radar, rain alerts, and hourly tracking."
+    />
+    <meta
+      property="twitter:image"
+      content="https://weather-atmosphere-app.netlify.app/og-image.jpg"
+    />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://api.weatherapi.com" />
+    <link rel="preconnect" href="https://cdn.weatherapi.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://embed.windy.com" />
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+      as="image"
+    />
+
+    <!-- Theme color for mobile browsers -->
+    <meta
+      name="theme-color"
+      content="#667eea"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0f2027"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        height: 100%;
+      }
+
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overscroll-behavior-y: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* iOS safe area */
+      .safe-area {
+        padding: max(env(safe-area-inset-top), 1rem)
+          max(env(safe-area-inset-right), 1rem)
+          max(env(safe-area-inset-bottom), 1rem)
+          max(env(safe-area-inset-left), 1rem);
+      }
+
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .glass-panel {
+          padding: 1.5rem;
+          border-radius: 1.5rem;
+        }
+      }
+
+      .weather-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.3s ease;
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+
+      .weather-card:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .search-input {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        border-radius: 0.75rem;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .search-input:focus {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        outline: none;
+      }
+
+      .temp-gradient {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      @media (min-width: 640px) {
+        .temp-gradient {
+          font-size: 5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .temp-gradient {
+          font-size: 6rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .temp-gradient {
+          font-size: 8rem;
+        }
+      }
+
+      .hourly-scroll {
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .hourly-scroll::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      .hourly-scroll::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+      }
+
+      .hourly-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+      }
+
+      .hour-item {
+        min-width: 70px;
+        flex-shrink: 0;
+        padding: 0.75rem 0.5rem;
+        border-radius: 0.75rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .hour-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .hour-item.rainy {
+        background: rgba(59, 130, 246, 0.3);
+        border: 1px solid rgba(59, 130, 246, 0.5);
+      }
+
+      .hour-item.rainy-high {
+        background: rgba(239, 68, 68, 0.3);
+        border: 1px solid rgba(239, 68, 68, 0.5);
+      }
+
+      .weather-icon-anim {
+        animation: float 3s ease-in-out infinite;
+        width: 120px;
+        height: 120px;
+      }
+
+      @media (min-width: 640px) {
+        .weather-icon-anim {
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .weather-icon-anim {
+          width: 192px;
+          height: 192px;
+        }
+      }
+
+      .radar-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.75rem;
+      }
+
+      .radar-container iframe {
+        width: 100%;
+        height: 250px;
+        border: none;
+        border-radius: 0.75rem;
+      }
+
+      @media (min-width: 640px) {
+        .radar-container iframe {
+          height: 300px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .radar-container iframe {
+          height: 400px;
+        }
+      }
+
+      .saved-location {
+        transition: all 0.2s ease;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .saved-location:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .saved-location.active {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .rain-badge {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .rain-badge.high {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .loading-spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .notification-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .notification-btn.enabled {
+        background: rgba(34, 197, 94, 0.3);
+        border-color: rgba(34, 197, 94, 0.5);
+      }
+
+      .install-prompt {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 16px 24px;
+        border-radius: 16px;
+        display: none;
+        align-items: center;
+        gap: 12px;
+        z-index: 1000;
+        max-width: 90vw;
+      }
+
+      .install-prompt.show {
+        display: flex;
+        animation: slideUp 0.3s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      .bg-sunny {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      }
+      .bg-cloudy {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .bg-rainy {
+        background: linear-gradient(135deg, #373b44 0%, #4286f4 100%);
+      }
+      .bg-snowy {
+        background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+      }
+      .bg-stormy {
+        background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      }
+      .bg-night {
+        background: linear-gradient(
+          135deg,
+          #0f2027 0%,
+          #203a43 50%,
+          #2c5364 100%
+        );
+      }
+
+      @media (hover: none) {
+        .weather-card:hover,
+        .hour-item:hover {
+          transform: none;
+        }
+      }
+      .notification-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.2s ease;
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        user-select: none;
+        cursor: pointer;
+        min-height: 44px;
+      }
+
+      .notification-btn:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .notification-btn.enabled {
+        background: rgba(34, 197, 94, 0.4);
+        border-color: rgba(34, 197, 94, 0.6);
+      }
+    </style>
+  </head>
+  <body class="text-white safe-area transition-all duration-1000" id="app-body">
+    <div class="max-w-6xl mx-auto w-full">
+      <!-- Header -->
+      <header
+        class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6"
+      >
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center"
+          >
+            <i data-lucide="cloud-sun" class="w-6 h-6"></i>
+          </div>
+          <h1 class="text-2xl font-bold tracking-tight">Atmosphere</h1>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button
+            onclick="toggleNotifications()"
+            id="notification-btn"
+            class="notification-btn px-3 py-2 rounded-lg flex items-center gap-2 text-sm flex-1 sm:flex-none justify-center"
+          >
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span id="notification-text">Alerts</span>
+          </button>
+          <button
+            onclick="getLocation()"
+            class="p-2 hover:bg-white/20 rounded-lg transition-colors"
+            title="My location"
+          >
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </button>
+          <div class="text-sm opacity-80" id="current-time">--:--</div>
+        </div>
+      </header>
+
+      <!-- Saved Locations -->
+      <div id="saved-locations-container" class="hidden mb-4">
+        <div class="glass-panel">
+          <div class="flex justify-between items-center mb-2">
+            <h3
+              class="text-sm font-semibold opacity-80 flex items-center gap-2"
+            >
+              <i data-lucide="bookmark" class="w-4 h-4"></i>
+              Saved
+            </h3>
+            <button
+              onclick="clearSavedLocations()"
+              class="text-xs opacity-60 hover:opacity-100"
+            >
+              Clear
+            </button>
+          </div>
+          <div
+            id="saved-locations-list"
+            class="flex gap-2 overflow-x-auto pb-2"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="glass-panel mb-4">
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <i
+              data-lucide="search"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-60"
+            ></i>
+            <input
+              type="text"
+              id="city-input"
+              placeholder="Search city..."
+              class="search-input"
+              onkeypress="if (event.key === 'Enter') searchCity();"
+            />
+          </div>
+          <button
+            onclick="searchCity()"
+            class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-xl font-medium text-sm"
+          >
+            Search
+          </button>
+          <button
+            onclick="saveCurrentLocation()"
+            id="save-btn"
+            class="hidden bg-white/20 hover:bg-white/30 p-2 rounded-xl"
+          >
+            <i data-lucide="bookmark-plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div
+          id="error-message"
+          class="hidden mt-2 text-red-300 text-sm flex items-center gap-2"
+        >
+          <i data-lucide="alert-circle" class="w-4 h-4"></i>
+          <span id="error-text">City not found</span>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div id="loading" class="hidden flex justify-center items-center py-20">
+        <div class="loading-spinner"></div>
+      </div>
+
+      <!-- Weather Content -->
+      <div id="weather-content" class="hidden space-y-4">
+        <!-- Main Card -->
+        <div class="glass-panel">
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <i data-lucide="map-pin" class="w-4 h-4 opacity-70"></i>
+                <span id="location-name" class="text-lg opacity-80">--</span>
+                <span
+                  id="country-code"
+                  class="text-xs opacity-60 bg-white/20 px-2 py-0.5 rounded"
+                  >--</span
+                >
+              </div>
+              <div class="flex items-baseline gap-2">
+                <span id="temperature" class="temp-gradient">--°</span>
+                <span class="text-xl opacity-60">C</span>
+              </div>
+              <div
+                id="weather-description"
+                class="text-lg opacity-90 mt-1 capitalize"
+              >
+                --
+              </div>
+              <div class="text-sm opacity-70">
+                Feels like <span id="feels-like">--°</span>
+              </div>
+
+              <div
+                id="rain-alert"
+                class="hidden mt-3 bg-blue-500/30 border border-blue-400/50 rounded-xl p-3 flex items-center gap-3"
+              >
+                <i data-lucide="cloud-rain" class="w-5 h-5 text-blue-200"></i>
+                <div>
+                  <div class="font-semibold text-sm text-blue-100">
+                    Rain Expected
+                  </div>
+                  <div class="text-xs text-blue-200" id="rain-alert-text">
+                    --
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex gap-3 mt-3">
+                <div
+                  class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full text-sm"
+                >
+                  <i data-lucide="arrow-up" class="w-3 h-3"></i>
+                  <span id="temp-max">--°</span>
+                </div>
+                <div
+                  class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full text-sm"
+                >
+                  <i data-lucide="arrow-down" class="w-3 h-3"></i>
+                  <span id="temp-min">--°</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="weather-icon-anim flex items-center justify-center">
+                <img
+                  id="weather-icon"
+                  src=""
+                  alt=""
+                  class="w-full h-full object-contain drop-shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radar -->
+        <div class="glass-panel">
+          <div class="flex justify-between items-center mb-3">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <i data-lucide="map" class="w-4 h-4"></i>
+              Live Radar
+            </h3>
+            <button
+              onclick="refreshRadar()"
+              class="text-xs bg-white/20 hover:bg-white/30 px-2 py-1 rounded flex items-center gap-1"
+            >
+              <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+              Refresh
+            </button>
+          </div>
+          <div class="radar-container">
+            <iframe id="radar-iframe" src="" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Hourly -->
+        <div class="glass-panel">
+          <h3 class="text-base font-semibold mb-3 flex items-center gap-2">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+            Hourly
+            <span class="text-xs font-normal opacity-60 ml-auto">Swipe →</span>
+          </h3>
+          <div id="hourly-container" class="hourly-scroll"></div>
+        </div>
+
+        <!-- Details -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="wind" class="w-4 h-4"></i>
+              <span>Wind</span>
+            </div>
+            <div id="wind-speed" class="text-xl font-semibold">--</div>
+            <div class="text-xs opacity-60">km/h</div>
+          </div>
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="droplets" class="w-4 h-4"></i>
+              <span>Humidity</span>
+            </div>
+            <div id="humidity" class="text-xl font-semibold">--</div>
+            <div class="text-xs opacity-60">%</div>
+          </div>
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>Visibility</span>
+            </div>
+            <div id="visibility" class="text-xl font-semibold">--</div>
+            <div class="text-xs opacity-60">km</div>
+          </div>
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="gauge" class="w-4 h-4"></i>
+              <span>Pressure</span>
+            </div>
+            <div id="pressure" class="text-xl font-semibold">--</div>
+            <div class="text-xs opacity-60">mb</div>
+          </div>
+        </div>
+
+        <!-- UV & Time -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="sun" class="w-4 h-4"></i>
+              <span>UV Index</span>
+            </div>
+            <div id="uv-index" class="text-xl font-semibold">--</div>
+            <div class="text-xs opacity-60" id="uv-text">--</div>
+          </div>
+          <div class="weather-card">
+            <div class="flex items-center gap-2 mb-2 opacity-70 text-sm">
+              <i data-lucide="clock" class="w-4 h-4"></i>
+              <span>Local Time</span>
+            </div>
+            <div id="local-time" class="text-xl font-semibold">--:--</div>
+            <div class="text-xs opacity-60" id="local-date">--</div>
+          </div>
+        </div>
+
+        <!-- Forecast -->
+        <div class="glass-panel">
+          <h3 class="text-base font-semibold mb-3 flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            3-Day Forecast
+          </h3>
+          <div
+            id="forecast-container"
+            class="grid grid-cols-1 md:grid-cols-3 gap-3"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="text-center py-16">
+        <div
+          class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <i data-lucide="cloud" class="w-10 h-10 opacity-60"></i>
+        </div>
+        <h2 class="text-xl font-semibold mb-2">Atmosphere</h2>
+        <p class="opacity-70 text-sm max-w-xs mx-auto">
+          Search for a city or use your location
+        </p>
+        <p class="opacity-50 text-xs mt-3">Powered by WeatherAPI.com</p>
+      </div>
+    </div>
+
+    <!-- Install Prompt -->
+    <div id="install-prompt" class="install-prompt">
+      <div class="text-white">
+        <div class="font-semibold text-sm">Install Atmosphere</div>
+        <div class="text-xs opacity-80">Add to home screen</div>
+      </div>
+      <button
+        onclick="installApp()"
+        class="bg-white text-black px-3 py-1.5 rounded-lg font-semibold text-sm"
+      >
+        Install
+      </button>
+      <button onclick="dismissInstall()" class="text-white/60 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <script>
+      // CONFIG - Add your API key here
+      const API_KEY = "8678712d4abd41d181a165317261004";
+      const API_BASE = "https://api.weatherapi.com/v1";
+
+      // Register service worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js");
+      }
+
+      // State
+      let currentLocation = null;
+      let savedLocations = JSON.parse(
+        localStorage.getItem("atmosphere_saved_locations") || "[]",
+      );
+      let notificationPermission = false;
+
+      // Init
+      lucide.createIcons();
+      updateTime();
+      setInterval(updateTime, 1000);
+      renderSavedLocations();
+
+      function updateTime() {
+        document.getElementById("current-time").textContent =
+          new Date().toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+      }
+
+      // Notifications
+      async function toggleNotifications() {
+        const btn = document.getElementById("notification-btn");
+
+        // Visual feedback immediately
+        btn.style.transform = "scale(0.95)";
+        setTimeout(() => (btn.style.transform = ""), 100);
+
+        // Haptic feedback
+        if (navigator.vibrate) navigator.vibrate(50);
+
+        // Check support
+        if (!("Notification" in window)) {
+          alert("Notifications not supported on this device/browser");
+          return;
+        }
+
+        // iOS check - must be installed as PWA
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isStandalone = window.matchMedia(
+          "(display-mode: standalone)",
+        ).matches;
+
+        if (isIOS && !isStandalone) {
+          alert(
+            "On iPhone/iPad: Please add Atmosphere to your home screen first (Share → Add to Home Screen) to enable rain alerts.",
+          );
+          return;
+        }
+
+        try {
+          if (Notification.permission === "granted") {
+            notificationPermission = true;
+            alert("Rain alerts are already enabled!");
+          } else if (Notification.permission === "denied") {
+            alert(
+              "Notifications blocked. Please enable them in your browser settings.",
+            );
+          } else {
+            const permission = await Notification.requestPermission();
+            if (permission === "granted") {
+              notificationPermission = true;
+              new Notification("Atmosphere", {
+                body: "Rain alerts enabled! You'll get notified when rain is expected.",
+                icon: "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+              });
+              alert("Rain alerts enabled successfully!");
+            } else {
+              alert("Permission denied. You won't receive rain alerts.");
+            }
+          }
+        } catch (err) {
+          console.error("Notification error:", err);
+          alert("Could not enable notifications. Try again.");
+        }
+
+        updateNotificationButton();
+      }
+
+      function updateNotificationButton() {
+        const btn = document.getElementById("notification-btn");
+        const text = document.getElementById("notification-text");
+        btn.classList.toggle("enabled", notificationPermission);
+        text.textContent = notificationPermission ? "On" : "Alerts";
+      }
+
+      function sendRainAlert(locationName, rainTime, chance) {
+        if (notificationPermission) {
+          new Notification("🌧️ Rain Alert", {
+            body: `${chance}% chance of rain in ${locationName} around ${rainTime}`,
+            icon: "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+          });
+        }
+      }
+      // Weather functions
+      async function searchCity() {
+        const city = document.getElementById("city-input").value.trim();
+        if (!city) return;
+
+        showLoading();
+        hideError();
+
+        try {
+          const res = await fetch(
+            `${API_BASE}/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=no`,
+          );
+          if (!res.ok) throw new Error("City not found");
+          const data = await res.json();
+          currentLocation = data;
+          displayWeather(data);
+          showContent();
+          document.getElementById("save-btn").classList.remove("hidden");
+        } catch (err) {
+          showError(err.message);
+          hideLoading();
+        }
+      }
+
+      async function getLocation() {
+        if (!navigator.geolocation)
+          return showError("Geolocation not supported");
+
+        showLoading();
+        navigator.geolocation.getCurrentPosition(
+          async (pos) => {
+            try {
+              const res = await fetch(
+                `${API_BASE}/forecast.json?key=${API_KEY}&q=${pos.coords.latitude},${pos.coords.longitude}&days=3&aqi=no&alerts=no`,
+              );
+              const data = await res.json();
+              currentLocation = data;
+              displayWeather(data);
+              showContent();
+              document.getElementById("save-btn").classList.remove("hidden");
+            } catch (err) {
+              showError("Failed to get weather");
+              hideLoading();
+            }
+          },
+          () => {
+            showError("Location access denied");
+            hideLoading();
+          },
+        );
+      }
+
+      function saveCurrentLocation() {
+        if (!currentLocation) return;
+        const loc = {
+          name: currentLocation.location.name,
+          country: currentLocation.location.country,
+          query: `${currentLocation.location.lat},${currentLocation.location.lon}`,
+        };
+        if (savedLocations.some((l) => l.name === loc.name))
+          return alert("Already saved");
+        savedLocations.push(loc);
+        localStorage.setItem(
+          "atmosphere_saved_locations",
+          JSON.stringify(savedLocations),
+        );
+        renderSavedLocations();
+      }
+
+      function renderSavedLocations() {
+        const container = document.getElementById("saved-locations-container");
+        const list = document.getElementById("saved-locations-list");
+        if (!savedLocations.length) return container.classList.add("hidden");
+        container.classList.remove("hidden");
+        list.innerHTML = savedLocations
+          .map(
+            (loc, i) => `
+      <div class="saved-location glass-panel px-3 py-2 rounded-xl flex items-center gap-2 text-sm ${currentLocation?.location.name === loc.name ? "active" : ""}" onclick="loadSavedLocation(${i})">
+        <span class="font-medium">${loc.name}</span>
+        <button onclick="event.stopPropagation();removeSavedLocation(${i})" class="opacity-60 hover:opacity-100"><i data-lucide="x" class="w-3 h-3"></i></button>
+      </div>
+    `,
+          )
+          .join("");
+        lucide.createIcons();
+      }
+
+      async function loadSavedLocation(i) {
+        const loc = savedLocations[i];
+        document.getElementById("city-input").value = loc.name;
+        showLoading();
+        try {
+          const res = await fetch(
+            `${API_BASE}/forecast.json?key=${API_KEY}&q=${encodeURIComponent(loc.query)}&days=3&aqi=no&alerts=no`,
+          );
+          const data = await res.json();
+          currentLocation = data;
+          displayWeather(data);
+          showContent();
+          document.getElementById("save-btn").classList.remove("hidden");
+        } catch (err) {
+          showError("Failed to load");
+          hideLoading();
+        }
+      }
+
+      function removeSavedLocation(i) {
+        savedLocations.splice(i, 1);
+        localStorage.setItem(
+          "atmosphere_saved_locations",
+          JSON.stringify(savedLocations),
+        );
+        renderSavedLocations();
+      }
+
+      function clearSavedLocations() {
+        if (confirm("Clear all saved?")) {
+          savedLocations = [];
+          localStorage.removeItem("atmosphere_saved_locations");
+          renderSavedLocations();
+        }
+      }
+
+      function displayWeather(data) {
+        const current = data.current;
+        const location = data.location;
+        const forecast = data.forecast.forecastday;
+
+        updateRadarMap(location.lat, location.lon);
+
+        document.getElementById("location-name").textContent = location.name;
+        document.getElementById("country-code").textContent = location.country;
+        document.getElementById("temperature").textContent =
+          `${Math.round(current.temp_c)}°`;
+        document.getElementById("feels-like").textContent =
+          `${Math.round(current.feelslike_c)}°`;
+        document.getElementById("weather-description").textContent =
+          current.condition.text;
+        document.getElementById("weather-icon").src =
+          `https:${current.condition.icon}`;
+        document.getElementById("temp-max").textContent =
+          `${Math.round(forecast[0].day.maxtemp_c)}°`;
+        document.getElementById("temp-min").textContent =
+          `${Math.round(forecast[0].day.mintemp_c)}°`;
+        document.getElementById("wind-speed").textContent = current.wind_kph;
+        document.getElementById("humidity").textContent = current.humidity;
+        document.getElementById("pressure").textContent = current.pressure_mb;
+        document.getElementById("visibility").textContent = current.vis_km;
+        document.getElementById("uv-index").textContent = current.uv;
+        document.getElementById("uv-text").textContent = getUVText(current.uv);
+
+        const localTime = new Date(location.localtime);
+        document.getElementById("local-time").textContent =
+          localTime.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        document.getElementById("local-date").textContent =
+          localTime.toLocaleDateString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          });
+
+        updateBackground(current.condition.code, current.is_day);
+        displayHourly(forecast[0].hour, location.localtime, location.name);
+        displayForecast(forecast);
+        renderSavedLocations();
+        lucide.createIcons();
+        hideLoading();
+      }
+
+      function updateRadarMap(lat, lon) {
+        document.getElementById("radar-iframe").src =
+          `https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&zoom=8&overlay=radar&metricWind=km%2Fh&metricTemp=%C2%B0C`;
+      }
+
+      function refreshRadar() {
+        if (currentLocation)
+          updateRadarMap(
+            currentLocation.location.lat,
+            currentLocation.location.lon,
+          );
+      }
+
+      function displayHourly(hours, localTimeStr, locationName) {
+        const container = document.getElementById("hourly-container");
+        container.innerHTML = "";
+        let rainExpected = false;
+        let rainTimes = [];
+        let notified = false;
+
+        hours.slice(0, 24).forEach((hour, i) => {
+          const time = new Date(hour.time);
+          const h = time.getHours();
+          const display = h === 0 ? 12 : h > 12 ? h - 12 : h;
+          const ampm = h >= 12 ? "PM" : "AM";
+          const chance = hour.chance_of_rain || 0;
+
+          if (hour.will_it_rain && chance > 50) {
+            rainExpected = true;
+            rainTimes.push(`${display}${ampm}`);
+            if (!notified && i > 0 && i <= 6 && chance > 60) {
+              sendRainAlert(locationName, `${display}${ampm}`, chance);
+              notified = true;
+            }
+          }
+
+          container.innerHTML += `
+        <div class="hour-item ${chance > 70 ? "rainy-high" : chance > 30 ? "rainy" : ""}">
+          <div class="text-xs opacity-70 mb-1">${display}${ampm}</div>
+          <img src="https:${hour.condition.icon}" class="w-8 h-8 mx-auto mb-1">
+          <div class="text-sm font-semibold">${Math.round(hour.temp_c)}°</div>
+          ${chance > 0 ? `<div class="text-xs ${chance > 50 ? "text-blue-300 font-semibold" : "opacity-60"}"><i data-lucide="droplets" class="w-3 h-3 inline"></i>${chance}%</div>` : '<div class="text-xs opacity-40">No rain</div>'}
+        </div>
+      `;
+        });
+
+        const alert = document.getElementById("rain-alert");
+        if (rainExpected) {
+          alert.classList.remove("hidden");
+          document.getElementById("rain-alert-text").textContent =
+            `Around ${[...new Set(rainTimes)].slice(0, 3).join(", ")}`;
+        } else {
+          alert.classList.add("hidden");
+        }
+      }
+
+      function displayForecast(days) {
+        document.getElementById("forecast-container").innerHTML = days
+          .map((day, i) => {
+            const date = new Date(day.date);
+            const name =
+              i === 0
+                ? "Today"
+                : date.toLocaleDateString("en-US", { weekday: "long" });
+            const d = day.day;
+            const chance = d.daily_chance_of_rain || 0;
+            const rainBadge =
+              chance > 20
+                ? `<div class="${chance > 70 ? "rain-badge high" : "rain-badge"} text-xs flex items-center gap-1"><i data-lucide="cloud-rain" class="w-3 h-3"></i>${chance}%</div>`
+                : "";
+
+            return `
+        <div class="weather-card">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <div class="font-semibold text-sm">${name}</div>
+              <div class="text-xs opacity-60">${date.toLocaleDateString("en-US", { month: "short", day: "numeric" })}</div>
+            </div>
+            ${rainBadge}
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="https:${d.condition.icon}" class="w-10 h-10">
+              <div class="text-xs opacity-80">${d.condition.text}</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xl font-bold">${Math.round(d.maxtemp_c)}°</div>
+              <div class="text-xs opacity-60">${Math.round(d.mintemp_c)}°</div>
+            </div>
+          </div>
+          ${chance > 0 ? `<div class="mt-2 pt-2 border-t border-white/10 flex justify-between text-xs"><span class="opacity-70">Precipitation</span><span class="${chance > 60 ? "text-blue-300" : ""}">${d.totalprecip_mm}mm</span></div>` : ""}
+        </div>
+      `;
+          })
+          .join("");
+      }
+
+      function updateBackground(code, isDay) {
+        const body = document.getElementById("app-body");
+        body.className = "text-white p-4 md:p-8 transition-all duration-1000";
+        if (!isDay) return body.classList.add("bg-night");
+        if (code === 1000) body.classList.add("bg-sunny");
+        else if ([1003, 1006, 1009].includes(code))
+          body.classList.add("bg-cloudy");
+        else if (
+          [1063, 1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(
+            code,
+          )
+        )
+          body.classList.add("bg-rainy");
+        else if (
+          [
+            1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258,
+          ].includes(code)
+        )
+          body.classList.add("bg-snowy");
+        else if ([1087, 1273, 1276, 1279, 1282].includes(code))
+          body.classList.add("bg-stormy");
+        else body.classList.add("bg-cloudy");
+      }
+
+      function getUVText(uv) {
+        if (uv <= 2) return "Low";
+        if (uv <= 5) return "Moderate";
+        if (uv <= 7) return "High";
+        if (uv <= 10) return "Very High";
+        return "Extreme";
+      }
+
+      function showLoading() {
+        document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("weather-content").classList.add("hidden");
+        document.getElementById("empty-state").classList.add("hidden");
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").classList.add("hidden");
+      }
+
+      function showContent() {
+        document.getElementById("weather-content").classList.remove("hidden");
+        document.getElementById("empty-state").classList.add("hidden");
+      }
+
+      function showError(msg) {
+        document.getElementById("error-text").textContent = msg;
+        document.getElementById("error-message").classList.remove("hidden");
+      }
+
+      function hideError() {
+        document.getElementById("error-message").classList.add("hidden");
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8C4J99NRHL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8C4J99NRHL");
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Atmosphere",
+        "description": "Real-time weather application with rain alerts, live radar, and hourly forecasts",
+        "url": "https://weather-atmosphere-app.netlify.app/",
+        "applicationCategory": "WeatherApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Real-time weather updates",
+          "Rain alerts and notifications",
+          "Live weather radar",
+          "Hourly forecasts",
+          "3-day weather predictions",
+          "UV index tracking",
+          "Saved locations"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "Atmosphere"
+        }
+      }
+    </script>
+  </body>
+</html>

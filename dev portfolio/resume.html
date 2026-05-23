@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Developer Resume | Asaba, Nigeria</title>
+    <meta
+      name="description"
+      content="Professional resume of Official Emi, Frontend Developer based in Asaba, Delta State, Nigeria. 1+ years experience in React, JavaScript, and modern web development."
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #2563eb;
+        --text: #1f2937;
+        --text-light: #6b7280;
+        --border: #e5e7eb;
+        --bg: #ffffff;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: #f3f4f6;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .resume-container {
+        max-width: 210mm;
+        margin: 2rem auto;
+        background: var(--bg);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Header Section */
+      .resume-header {
+        background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+        color: white;
+        padding: 2.5rem;
+        text-align: center;
+      }
+
+      .name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        opacity: 0.95;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .contact-item a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Main Content */
+      .resume-body {
+        padding: 2rem 2.5rem;
+      }
+
+      .section {
+        margin-bottom: 1.75rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Summary */
+      .summary {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text);
+      }
+
+      /* Experience */
+      .job {
+        margin-bottom: 1.5rem;
+      }
+
+      .job:last-child {
+        margin-bottom: 0;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .job-title {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text);
+      }
+
+      .job-company {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .job-date {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+
+      .job-location {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+      }
+
+      .job-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .job-list li {
+        position: relative;
+        padding-left: 1.25rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .job-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .skill-category {
+        margin-bottom: 0.75rem;
+      }
+
+      .skill-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+        color: var(--text);
+      }
+
+      .skill-list {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.5;
+      }
+
+      /* Projects */
+      .project {
+        margin-bottom: 1.25rem;
+      }
+
+      .project:last-child {
+        margin-bottom: 0;
+      }
+
+      .project-name {
+        font-weight: 700;
+        color: var(--text);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-tech {
+        font-size: 0.8rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-top: 0.25rem;
+        line-height: 1.5;
+      }
+
+      /* Education */
+      .education-item {
+        margin-bottom: 1rem;
+      }
+
+      .education-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .degree {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .school {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .edu-date {
+        font-size: 0.875rem;
+        color: var(--text-light);
+      }
+
+      /* Two Column Layout */
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      /* Coursework / Self-Study */
+      .course-list {
+        list-style: none;
+      }
+
+      .course-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        padding-left: 1.25rem;
+        position: relative;
+      }
+
+      .course-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      /* Languages */
+      .lang-list {
+        list-style: none;
+      }
+
+      .lang-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .lang-level {
+        color: var(--text-light);
+        font-size: 0.85rem;
+      }
+
+      /* Print Button */
+      .print-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .print-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+        }
+
+        .resume-container {
+          margin: 0;
+          box-shadow: none;
+          max-width: 100%;
+        }
+
+        .print-btn {
+          display: none;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .resume-header {
+          padding: 1.5rem;
+        }
+
+        .name {
+          font-size: 1.75rem;
+        }
+
+        .resume-body {
+          padding: 1.5rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .two-column {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .job-header {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Header -->
+      <header class="resume-header">
+        <h1 class="name">Official Emi</h1>
+        <p class="title">Frontend Developer | React & JavaScript Specialist</p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>📍</span>
+            <span>Asaba, Delta State, Nigeria</span>
+          </div>
+          <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:dreamvisual011@gmail.com"
+              >dreamvisual011@gmail.com</a
+            >
+          </div>
+          <div class="contact-item">
+            <span>📱</span>
+            <span>+234 902 233 0304</span>
+          </div>
+          <div class="contact-item">
+            <span>💼</span>
+            <a href="https://linkedin.com/in/alexchen">linkedin.com/in</a>
+          </div>
+          <div class="contact-item">
+            <span>🐙</span>
+            <a href="https://github.com/official-codes"
+              >github.com/official-codes</a
+            >
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <a href="https://webdev.netlify.app">web-dev.netlify.app/</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Body -->
+      <div class="resume-body">
+        <!-- Professional Summary -->
+        <section class="section">
+          <h2 class="section-title">Professional Summary</h2>
+          <p class="summary">
+            Self-taught Frontend Developer with
+            <strong>1 year and 3 months</strong> of practical experience
+            building responsive, user-centric web applications. Proficient in
+            <strong>React.js, JavaScript (ES6+), HTML5, CSS3,</strong> and
+            modern frontend tooling. Completed comprehensive online coursework
+            in web development and built multiple portfolio projects
+            demonstrating strong problem-solving abilities. Skilled in
+            translating designs into pixel-perfect interfaces, optimizing web
+            performance, and collaborating in Agile teams. Passionate about
+            continuous learning and contributing to meaningful digital products.
+          </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <div class="skill-name">Frontend Development</div>
+              <div class="skill-list">
+                React.js, Vue.js, JavaScript (ES6+), HTML5, CSS3, SASS/SCSS,
+                Tailwind CSS, Bootstrap
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-name">Tools & Workflow</div>
+              <div class="skill-list">
+                Git, GitHub, VS Code, npm, pinterest, Figma
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-name">Testing & Optimization</div>
+              <div class="skill-list">
+                Chrome DevTools, Lighthouse, Responsive Design, Web Performance
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-name">CMS & Other</div>
+              <div class="skill-list">
+                WordPress, WooCommerce, REST APIs, JSON, Basic Node.js
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+          <h2 class="section-title">Professional Experience</h2>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Frontend Developer</div>
+                <div class="job-company">TechStart Asaba</div>
+              </div>
+              <div class="job-date">Jan 2026 – Present</div>
+            </div>
+            <div class="job-location">Asaba, Delta State, Nigeria</div>
+            <ul class="job-list">
+              <li>
+                Develop responsive web applications using
+                <strong>React.js</strong> and <strong>Tailwind CSS</strong>,
+                improving mobile user experience for 5+ client projects
+              </li>
+              <li>
+                Collaborate with UX designers to implement Figma prototypes,
+                reducing design-to-development handoff time by 30%
+              </li>
+              <li>
+                Optimize website performance achieving 90+ Lighthouse scores
+                through code splitting and lazy loading techniques
+              </li>
+              <li>
+                Implement component-based architecture, reducing code
+                duplication by 40% across projects
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-title">Junior Web Developer</div>
+                <div class="job-company">Digital Agency Asaba</div>
+              </div>
+              <div class="job-date">Jan 2025 – Dec 2025</div>
+            </div>
+            <div class="job-location">Asaba, Delta State, Nigeria</div>
+            <ul class="job-list">
+              <li>
+                Built and maintained <strong>8+ responsive websites</strong> for
+                Nigerian businesses using HTML, CSS, JavaScript, and WordPress
+              </li>
+              <li>
+                Developed custom WordPress themes and plugins, improving site
+                load times by an average of 25%
+              </li>
+              <li>
+                Collaborated with senior developers to implement React
+                components for client dashboards
+              </li>
+              <li>
+                Managed website deployments and updates using cPanel and FTP,
+                ensuring 99% uptime
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+          <h2 class="section-title">Featured Projects</h2>
+
+          <div class="project">
+            <div class="project-name">
+              <span>ShopNaija E-Commerce Platform</span>
+              <span class="project-tech">React, Node.js, MongoDB</span>
+            </div>
+            <p class="project-desc">
+              Full-stack e-commerce platform for Nigerian vendors. Implemented
+              user authentication, product catalog, shopping cart, and payment
+              integration. Reduced page load time by 35% through image
+              optimization and code splitting.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-name">
+              <span>AsabaBiz Business Directory</span>
+              <span class="project-tech">WordPress, PHP, MySQL</span>
+            </div>
+            <p class="project-desc">
+              Custom WordPress directory site for local businesses in Asaba.
+              Built custom post types, advanced search functionality, and Google
+              Maps integration. Currently serves 50+ business listings.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-name">
+              <span>TaskFlow Productivity App</span>
+              <span class="project-tech">React, LocalStorage, CSS3</span>
+            </div>
+            <p class="project-desc">
+              Task management application with drag-and-drop functionality,
+              priority sorting, and progress tracking. Implemented using React
+              hooks and Context API for state management.
+            </p>
+          </div>
+        </section>
+
+        <!-- Education & Training -->
+        <div class="two-column">
+          <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+              <div class="degree">B.Sc. Computer Science (In Progress)</div>
+              <div class="school">Denise Osadebe University, Asaba</div>
+              <div class="edu-date">2025 – Present</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Professional Training</h2>
+            <ul class="course-list">
+              <li>Complete Web Development Bootcamp (Online, 6 months)</li>
+              <li>Advanced React and Redux (Udemy)</li>
+              <li>JavaScript: The Advanced Concepts (Udemy)</li>
+              <li>Responsive Web Design (freeCodeCamp)</li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="two-column">
+          <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <ul class="lang-list">
+              <li>
+                <span>English</span>
+                <span class="lang-level">Professional Working Proficiency</span>
+              </li>
+              <li>
+                <span>Urhobo</span>
+                <span class="lang-level">Native</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title">Interests</h2>
+            <p style="font-size: 0.9rem; color: var(--text-light)">
+              Open Source Contribution, Tech Blogging, UI/UX Design,
+              Mobile-First Development, Web Performance Optimization
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path
+          d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
+        ></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Download as PDF
+    </button>
+
+    <script>
+      // Auto-print on load if URL has ?download parameter
+      if (window.location.search.includes("download")) {
+        setTimeout(() => window.print(), 500);
+      }
+    </script>
+  </body>
+</html>

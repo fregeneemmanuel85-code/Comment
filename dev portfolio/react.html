@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started with React - My Blog</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #667eea;
+        --primary-dark: #5a67d8;
+        --secondary: #764ba2;
+        --dark: #1a202c;
+        --gray: #718096;
+        --light-gray: #e2e8f0;
+        --bg: #f7fafc;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.8;
+        color: var(--dark);
+        background: var(--bg);
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        z-index: 100;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      /* Hamburger Menu - 2 Lines */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--dark);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:first-child {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+
+      .hamburger.active span:last-child {
+        transform: rotate(-45deg) translate(4px, -4px);
+      }
+
+      /* Mobile Navigation */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.98);
+          flex-direction: column;
+          padding: 30px;
+          gap: 20px;
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+        }
+
+        .nav-links a {
+          font-size: 1.2rem;
+          padding: 10px 0;
+        }
+      }
+
+      .hero-section {
+        margin-top: 70px;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        padding: 80px 20px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+      }
+
+      .category {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        max-width: 800px;
+        margin: 0 auto 20px;
+        line-height: 1.2;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        font-size: 14px;
+        opacity: 0.9;
+        flex-wrap: wrap;
+      }
+
+      .article-container {
+        max-width: 800px;
+        margin: -60px auto 80px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
+      }
+
+      article {
+        background: white;
+        padding: 60px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .featured-image {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 16px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .featured-image::after {
+        content: "⚛️";
+        filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      h2 {
+        color: var(--dark);
+        margin: 40px 0 20px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 30px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 3px;
+      }
+
+      h3 {
+        color: var(--dark);
+        margin: 30px 0 15px;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      p {
+        margin-bottom: 24px;
+        font-size: 1.1rem;
+        color: #4a5568;
+      }
+
+      .highlight-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.1),
+          rgba(118, 75, 162, 0.1)
+        );
+        border-left: 4px solid var(--primary);
+        padding: 25px 30px;
+        border-radius: 0 12px 12px 0;
+        margin: 30px 0;
+      }
+
+      .highlight-box h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        margin-top: 0;
+      }
+
+      ul,
+      ol {
+        margin: 20px 0 30px 30px;
+      }
+
+      li {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        color: #4a5568;
+        position: relative;
+        padding-left: 10px;
+      }
+
+      .author-box {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 50px;
+        padding: 30px;
+        background: var(--bg);
+        border-radius: 16px;
+      }
+
+      .author-avatar {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+
+      .author-info h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .author-info p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 40px;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+      }
+
+      .back:hover {
+        gap: 15px;
+        color: var(--primary-dark);
+      }
+
+      footer {
+        background: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+        article {
+          padding: 30px;
+        }
+        .featured-image {
+          height: 250px;
+          font-size: 5rem;
+        }
+        .author-box {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <div class="logo">OE</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <span class="category">Development</span>
+      <h1>
+        Getting Started with React: A Beginner's Guide for Nigerian Developers
+      </h1>
+      <div class="meta">
+        <span>📅 March 15, 2026</span>
+        <span>⏱️ 8 min read</span>
+        <span>👁️ 1.2k views</span>
+      </div>
+    </header>
+
+    <div class="article-container">
+      <article>
+        <div class="featured-image"></div>
+
+        <p>
+          Starting my journey with React was both exciting and challenging. As a
+          developer based in Nigeria, I had to navigate limited resources,
+          inconsistent internet, and power outages, but the learning experience
+          has been incredibly rewarding. In this comprehensive guide, I will
+          share everything I have learned about getting started with React, from
+          the basics to building your first application.
+        </p>
+
+        <p>
+          React has completely transformed the way we build user interfaces.
+          Developed by Facebook (now Meta) in 2013, it has grown to become the
+          most popular JavaScript library for building modern web applications.
+          What makes React special is its component-based architecture, which
+          allows developers to build reusable UI pieces that can be composed
+          together to create complex applications.
+        </p>
+
+        <h2>Why Choose React?</h2>
+
+        <p>
+          Before diving into the technical details, let us understand why React
+          has become the go-to library for frontend development. React's
+          popularity is not just hype, there are solid technical reasons behind
+          its widespread adoption:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Component-Based Architecture:</strong> Build reusable UI
+            components that manage their own state
+          </li>
+          <li>
+            <strong>Virtual DOM:</strong> Efficient updates and rendering for
+            better performance
+          </li>
+          <li>
+            <strong>Unidirectional Data Flow:</strong> Easier to debug and
+            understand how data moves through your app
+          </li>
+          <li>
+            <strong>Massive Ecosystem:</strong> Thousands of libraries and tools
+            to extend functionality
+          </li>
+          <li>
+            <strong>Strong Job Market:</strong> High demand for React developers
+            globally and in Nigeria
+          </li>
+          <li>
+            <strong>Great Documentation:</strong> Official docs are
+            comprehensive and beginner-friendly
+          </li>
+        </ul>
+
+        <div class="highlight-box">
+          <h3>💡 Pro Tip</h3>
+          <p>
+            Start with the official React documentation at react.dev. It is
+            well-written, comprehensive, completely free, and includes
+            interactive examples that you can modify and experiment with
+            directly in your browser.
+          </p>
+        </div>
+
+        <h2>Prerequisites: What You Need to Know First</h2>
+
+        <p>
+          Before jumping into React, you need a solid foundation in web
+          development basics. Trying to learn React without understanding these
+          fundamentals will make your journey much harder. Here is what you
+          should know:
+        </p>
+
+        <h3>HTML & CSS</h3>
+        <p>
+          You should be comfortable with semantic HTML tags, CSS selectors, the
+          box model, flexbox, and grid layouts. React components ultimately
+          render to HTML, so understanding how HTML works is essential.
+        </p>
+
+        <h3>JavaScript ES6+</h3>
+        <p>
+          Modern React relies heavily on ES6+ features. Make sure you understand
+          arrow functions, destructuring, spread operators, template literals,
+          classes, and especially modules (import/export). The most important
+          concept to master is JavaScript arrays and their methods like map,
+          filter, and reduce, as these are used constantly in React.
+        </p>
+
+        <h2>Setting Up Your Development Environment</h2>
+
+        <p>
+          Getting your environment set up can be one of the most frustrating
+          parts for beginners. Here is how I set up mine:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Install Node.js:</strong> Download from nodejs.org. This
+            gives you npm (Node Package Manager) which you will use to install
+            React and other packages.
+          </li>
+          <li>
+            <strong>Choose a Code Editor:</strong> VS Code is the most popular
+            choice and has excellent React support with extensions.
+          </li>
+          <li>
+            <strong>Install Create React App:</strong> Run
+            <code>npx create-react-app my-first-app</code> to scaffold a new
+            project.
+          </li>
+          <li>
+            <strong>Start the Development Server:</strong> Run
+            <code>npm start</code> and your app will open in the browser.
+          </li>
+        </ol>
+
+        <h2>Core Concepts Every Beginner Must Master</h2>
+
+        <h3>Components</h3>
+        <p>
+          Components are the building blocks of React applications. They are
+          like JavaScript functions that return JSX (a syntax extension that
+          looks like HTML). You can create functional components or class
+          components, but functional components with hooks are now the standard.
+        </p>
+
+        <h3>Props</h3>
+        <p>
+          Props (short for properties) allow you to pass data from parent
+          components to child components. They are read-only and help make your
+          components reusable. Think of props as function arguments.
+        </p>
+
+        <h3>State</h3>
+        <p>
+          State is data that changes over time and affects what is rendered. The
+          useState hook lets you add state to functional components.
+          Understanding when and how to use state is crucial for building
+          interactive applications.
+        </p>
+
+        <h3>Hooks</h3>
+        <p>
+          Hooks are functions that let you use React features in functional
+          components. The most important ones to learn first are useState (for
+          state management), useEffect (for side effects like data fetching),
+          and useContext (for sharing data across components).
+        </p>
+
+        <h2>Challenges I Faced as a Nigerian Developer</h2>
+
+        <p>
+          Learning React in Nigeria came with unique challenges that developers
+          in other countries might not face:
+        </p>
+
+        <p>
+          <strong>Power Outages:</strong> Electricity is unreliable in many
+          parts of Nigeria. I invested in a good power bank and learned to save
+          my work constantly. I also scheduled my most intensive learning
+          sessions during hours when power was more stable.
+        </p>
+
+        <p>
+          <strong>Slow Internet:</strong> Downloading packages and watching
+          video tutorials consumed a lot of data. I learned to download
+          documentation for offline reading, use text-based tutorials when
+          possible, and leverage free WiFi at cafes and co-working spaces.
+        </p>
+
+        <p>
+          <strong>Limited Access to Mentors:</strong> Finding experienced React
+          developers locally was difficult. I joined online communities like
+          Twitter tech Twitter, Discord servers, and Nigerian tech groups on
+          Telegram where I could ask questions and learn from others.
+        </p>
+
+        <p>
+          <strong>Expensive Courses:</strong> Many premium courses were out of
+          my budget. I relied on free resources like freeCodeCamp, The Odin
+          Project, YouTube tutorials, and the official React documentation.
+        </p>
+
+        <h2>Projects to Build as a Beginner</h2>
+
+        <p>
+          Theory alone is not enough. You need to build projects to solidify
+          your understanding. Here are projects I built that helped me learn:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Todo List App:</strong> The classic beginner project.
+            Teaches state management and event handling.
+          </li>
+          <li>
+            <strong>Weather App:</strong> Fetch data from an API and display it.
+            Great for learning useEffect.
+          </li>
+          <li>
+            <strong>Movie Search App:</strong> Search and filter movies. Teaches
+            working with forms and lists.
+          </li>
+          <li>
+            <strong>E-commerce Product Page:</strong> Add items to cart,
+            calculate totals. More complex state management.
+          </li>
+          <li>
+            <strong>Portfolio Website:</strong> Showcase your projects. Combines
+            everything you have learned.
+          </li>
+        </ul>
+
+        <h2>Resources That Helped Me</h2>
+
+        <p>
+          Here are the resources I found most valuable during my learning
+          journey:
+        </p>
+
+        <ul>
+          <li>Official React Documentation (react.dev)</li>
+          <li>freeCodeCamp React Course</li>
+          <li>Scrimba Learn React for Free</li>
+          <li>Traversy Media YouTube Channel</li>
+          <li>Web Dev Simplified YouTube Channel</li>
+          <li>React documentation beta (new interactive docs)</li>
+        </ul>
+
+        <h2>Final Thoughts</h2>
+
+        <p>
+          Learning React has been one of the best decisions I have made for my
+          career. The journey is challenging but incredibly rewarding. Do not
+          let resource limitations discourage you. The Nigerian tech community
+          is supportive, free resources are abundant, and with consistency, you
+          can become a proficient React developer.
+        </p>
+
+        <p>
+          Remember, everyone starts as a beginner. The key is to keep building,
+          keep learning, and never give up. Start small, stay consistent, and
+          before you know it, you will be building amazing applications. Good
+          luck on your React journey!
+        </p>
+
+        <div class="author-box">
+          <div class="author-avatar">👨‍💻</div>
+          <div class="author-info">
+            <h4>Written by Official Emi</h4>
+            <p>
+              Frontend Developer based in Asaba, Nigeria. Passionate about React
+              and helping others learn to code.
+            </p>
+          </div>
+        </div>
+
+        <a href="index.html#blog" class="back">← Back to all articles</a>
+      </article>
+    </div>
+
+    <footer>
+      <p>© 2026 Official Emi. Built with ❤️ in Nigeria.</p>
+    </footer>
+
+    <script>
+      // Hamburger menu functionality
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

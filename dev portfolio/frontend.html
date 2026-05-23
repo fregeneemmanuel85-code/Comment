@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Development</title>
+    <meta
+      name="description"
+      content="Professional frontend development services in Asaba, Nigeria. Building fast, responsive, and modern web applications with React, Next.js, and TypeScript."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #6366f1;
+        --primary-light: #818cf8;
+        --bg-dark: #0f0f1a;
+        --bg-light: #1a1a2e;
+        --text-light: #f3f4f6;
+        --text-muted: #9ca3af;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--bg-dark) 0%,
+          var(--bg-light) 100%
+        );
+        color: var(--text-light);
+        min-height: 100vh;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        background: rgba(15, 15, 26, 0.9);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-brand {
+        font-family: "Syne", sans-serif;
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-light);
+      }
+
+      /* Hamburger Menu */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 5px;
+      }
+
+      .nav-toggle span {
+        width: 25px;
+        height: 2px;
+        background: white;
+        transition: 0.3s;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 12rem 5% 6rem;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .hero h1 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--primary) 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        word-break: break-word;
+      }
+
+      .hero > p {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        padding: 0 1rem;
+      }
+
+      /* Content Section */
+      .content {
+        padding: 0 5% 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .section {
+        margin-bottom: 4rem;
+      }
+
+      .section h2 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
+        word-break: break-word;
+      }
+
+      .section p {
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .section ul {
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        padding-left: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section li {
+        margin-bottom: 0.75rem;
+        word-break: break-word;
+      }
+
+      /* Tech Stack */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .tech-card {
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        text-align: center;
+        transition:
+          transform 0.3s,
+          border-color 0.3s;
+        overflow: hidden;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+      }
+
+      .tech-card h3 {
+        color: white;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        word-break: break-word;
+      }
+
+      .tech-card p {
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Process */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .process-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2rem;
+        border-radius: 1rem;
+        border-left: 4px solid var(--primary);
+        overflow: hidden;
+      }
+
+      .process-card h3 {
+        color: white;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        word-break: break-word;
+      }
+
+      .process-card p {
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        text-align: center;
+        padding: 4rem 5%;
+        background: rgba(99, 102, 241, 0.05);
+        margin: 4rem auto;
+        border-radius: 2rem;
+        max-width: 1200px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .cta-section h2 {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        margin-bottom: 1rem;
+        word-break: break-word;
+      }
+
+      .cta-section p {
+        color: var(--text-muted);
+        padding: 0 1rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2.5rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 1.125rem;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+
+      .cta-button:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--bg-dark);
+        padding: 3rem 5%;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .footer-brand {
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .footer p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
+      .footer-copy {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.875rem;
+      }
+
+      /* Mobile Navigation */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--bg-dark);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-toggle {
+          display: flex;
+        }
+
+        .hero {
+          padding: 8rem 1rem 4rem;
+        }
+
+        .hero > p {
+          font-size: 1.1rem;
+        }
+
+        .content {
+          padding: 0 1rem 4rem;
+        }
+
+        .tech-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section h2 {
+          font-size: 1.5rem;
+        }
+
+        .section p,
+        .section ul {
+          font-size: 1rem;
+        }
+
+        .tech-card,
+        .process-card {
+          padding: 1.5rem;
+        }
+
+        .cta-section {
+          margin: 2rem 1rem;
+          padding: 3rem 1.5rem;
+        }
+
+        .cta-button {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-brand {
+          font-size: 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+
+        .tech-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-brand {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-brand">OE.</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#about" class="nav-link">About</a></li>
+        <li>
+          <a href="index.html#services" class="nav-link active">Services</a>
+        </li>
+        <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Frontend Development</h1>
+      <p>
+        I build fast, responsive, and user-friendly web applications using
+        modern technologies. From single-page applications to complex
+        dashboards, I deliver clean code that scales.
+      </p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="section">
+        <h2>Technologies I Work With</h2>
+        <p>
+          I stay current with the latest frontend technologies to ensure your
+          project is built with the best tools available.
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3>React</h3>
+            <p>Component-based UI library for interactive applications</p>
+          </div>
+          <div class="tech-card">
+            <h3>Next.js</h3>
+            <p>Full-stack React framework with SSR and static generation</p>
+          </div>
+          <div class="tech-card">
+            <h3>TypeScript</h3>
+            <p>Type-safe JavaScript for scalable, maintainable code</p>
+          </div>
+          <div class="tech-card">
+            <h3>Tailwind CSS</h3>
+            <p>Utility-first CSS framework for rapid styling</p>
+          </div>
+          <div class="tech-card">
+            <h3>Vue.js</h3>
+            <p>Progressive framework for building user interfaces</p>
+          </div>
+          <div class="tech-card">
+            <h3>JavaScript</h3>
+            <p>Modern ES6+ for dynamic, interactive experiences</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>My Development Process</h2>
+        <p>
+          Every project follows a structured approach to ensure quality and
+          timely delivery.
+        </p>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <h3>1. Discovery</h3>
+            <p>
+              Understanding your goals, target audience, and project
+              requirements through detailed consultation.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>2. Planning</h3>
+            <p>
+              Creating technical architecture, selecting the right tech stack,
+              and defining project milestones.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>3. Development</h3>
+            <p>
+              Writing clean, documented code with regular commits and progress
+              updates throughout.
+            </p>
+          </div>
+          <div class="process-card">
+            <h3>4. Testing</h3>
+            <p>
+              Cross-browser testing, performance optimization, and ensuring
+              responsive behavior.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>What You Get</h2>
+        <ul>
+          <li>Responsive design that works on all devices</li>
+          <li>Performance-optimized code for fast load times</li>
+          <li>SEO-friendly structure and meta tags</li>
+          <li>Accessibility compliance (WCAG standards)</li>
+          <li>Clean, maintainable code with documentation</li>
+          <li>Version control with Git throughout development</li>
+          <li>Deployment and hosting setup assistance</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>Ready to Build Something Amazing?</h2>
+      <p>Let's discuss your project and bring your vision to life.</p>
+      <a href="index.html#contact" class="cta-button">Start Your Project</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">OE.</div>
+      <p>Frontend developer based in Asaba, Nigeria</p>
+      <p class="footer-copy">© 2026 Official Emi. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

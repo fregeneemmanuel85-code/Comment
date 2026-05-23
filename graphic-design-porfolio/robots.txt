@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /image/
+Allow: /style.css
+Allow: /script.js
+Allow: /main.js
+
+Disallow: /private/
+Disallow: /draft/
+
+Sitemap: https://victor-designs.netlify.app/sitemap.xml
+
+# Crawl-delay for slower hosts
+Crawl-delay: 1

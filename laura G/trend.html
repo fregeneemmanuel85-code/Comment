@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rise of Sustainable Fashion in Nigeria | Atelier Journal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: #fafaf8;
+        color: #2c2c2c;
+        line-height: 1.8;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+        text-decoration: none;
+        letter-spacing: 2px;
+      }
+
+      .back-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+        text-decoration: none;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+      }
+
+      .back-link:hover {
+        color: #1a1a1a;
+      }
+
+      .article-header {
+        padding: 60px 0 40px;
+        text-align: center;
+      }
+
+      .category {
+        display: inline-block;
+        background: #2d5a27;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: #1a1a1a;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        color: #999;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .featured-image {
+        width: 100%;
+        height: 500px;
+        background: url("images/blog1.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 14px;
+      }
+
+      .article-content {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 80px;
+      }
+
+      .article-content p {
+        margin-bottom: 28px;
+      }
+
+      .article-content h2 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin: 48px 0 24px;
+      }
+
+      .article-content blockquote {
+        border-left: 4px solid #2d5a27;
+        padding-left: 24px;
+        margin: 40px 0;
+        font-style: italic;
+        color: #666;
+        font-size: 20px;
+      }
+
+      .tags {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .tag {
+        background: #f0f0f0;
+        color: #666;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 12px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .tag:hover {
+        background: #1a1a1a;
+        color: #fff;
+      }
+
+      .author-box {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 40px;
+        display: flex;
+        gap: 24px;
+        margin-bottom: 80px;
+      }
+
+      .author-avatar {
+        width: 80px;
+        height: 80px;
+        background: #ddd;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .author-info h4 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+      }
+
+      .author-info p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .related-articles {
+        padding: 60px 0;
+        background: #fff;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .related-articles h3 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        margin-bottom: 32px;
+      }
+
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .related-card {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .related-card h4 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+      }
+
+      .related-card:hover h4 {
+        color: #2d5a27;
+      }
+
+      .related-card span {
+        font-size: 13px;
+        color: #999;
+        font-family: "Helvetica Neue", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        color: #999;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 13px;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 28px;
+        }
+
+        .featured-image {
+          height: 300px;
+        }
+
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .author-box {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">Laurel-G</a>
+          <a href="./index.html#blog" class="back-link">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to Journal
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <article>
+      <div class="container">
+        <div class="article-header">
+          <span class="category">Trends</span>
+          <h1>The Rise of Sustainable Fashion in Nigeria</h1>
+          <div class="meta">
+            <span>January 15, 2026</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="featured-image">
+          Featured Image: Sustainable Fashion in Nigeria
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="article-content">
+          <p>
+            The Nigerian fashion landscape is undergoing a profound
+            transformation. As global awareness of environmental impact grows,
+            local designers are pioneering a movement that proves sustainability
+            and style are not mutually exclusive. From the bustling markets of
+            Lagos to the artisan workshops in Kano, a green revolution is taking
+            root.
+          </p>
+
+          <p>
+            What makes this movement particularly exciting is its authentic
+            connection to Nigerian heritage. Long before "sustainability" became
+            a buzzword, Nigerian textile traditions emphasized natural dyes,
+            organic cotton, and zero-waste cutting techniques. Today's designers
+            are not importing foreign concepts—they're reviving ancestral wisdom
+            and reimagining it for the modern wardrobe.
+          </p>
+
+          <h2>From Organic Cotton to Recycled Fabrics</h2>
+
+          <p>
+            The journey begins with materials. Across the northern regions,
+            organic cotton farming is experiencing a renaissance. Farmers are
+            returning to pesticide-free methods, producing cotton that is not
+            only better for the earth but also yields superior fabric quality.
+            Designers like Amaka Osakwe of Maki Oh and Kenneth Ize have made
+            these materials central to their collections, creating pieces that
+            feel as good as they look.
+          </p>
+
+          <blockquote>
+            "Sustainability is not a trend for us—it's a return to who we are as
+            African craftspeople."
+          </blockquote>
+
+          <p>
+            Recycled fabrics present another frontier. Innovative studios in
+            Lagos are transforming discarded textiles into high-fashion pieces.
+            One woman's discarded Ankara print becomes another's statement
+            jacket. This circular approach to fashion challenges the waste-heavy
+            model of fast fashion and creates unique, limited-edition pieces
+            that tell a story.
+          </p>
+
+          <h2>The Economic Impact</h2>
+
+          <p>
+            Beyond environmental benefits, sustainable fashion is creating
+            economic opportunities. Artisan cooperatives are flourishing as
+            international demand for ethically-made Nigerian fashion grows.
+            Young people are returning to traditional crafts, seeing viable
+            career paths in weaving, dyeing, and tailoring. The fashion industry
+            is becoming a vehicle for preserving cultural heritage while
+            building economic resilience.
+          </p>
+
+          <p>
+            As we look toward the future, Nigerian sustainable fashion stands as
+            a beacon of what's possible when creativity meets consciousness. The
+            green revolution in African fashion is not just about saving the
+            planet—it's about honoring our past while dressing the future.
+          </p>
+        </div>
+
+       
+    </article>
+
+    <section class="related-articles">
+      <div class="container">
+        <h3>More from The Journal</h3>
+        <div class="related-grid">
+          <a href="./style-guide.html" class="related-card">
+            <h4>Building a Capsule Wardrobe</h4>
+            <span>Style Guide — Jan 10, 2026</span>
+          </a>
+          <a href="./behind-scene.html" class="related-card">
+            <h4>A Day in Our Atelier</h4>
+            <span>Behind the Scenes — Jan 5, 2026</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>  &copy; 2026 Laurel-G Dezyns and Fashionique collections. All rights
+            reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./seo-config.js"></script>
+ 
+  </body>
+</html>

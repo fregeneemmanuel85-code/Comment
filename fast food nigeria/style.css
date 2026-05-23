@@ -1,0 +1,315 @@
+/* Base Styles */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.serif {
+  font-family: "Playfair Display", serif;
+}
+
+/* Hero Section Pattern */
+.hero-pattern {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Pattern Background */
+.pattern-bg {
+  background-color: #f8f9fa;
+  background-image: radial-gradient(#e9ecef 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Food Card Hover Effects */
+.food-card:hover .food-img {
+  transform: scale(1.05);
+}
+
+.food-img {
+  transition: transform 0.3s ease;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Spice Level Indicators */
+.spice-level {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.pepper {
+  color: #ef4444;
+}
+
+.no-pepper {
+  color: #d1d5db;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Category Button Active State */
+.category-btn.active {
+  background-color: #16a34a;
+  color: white;
+}
+
+/* Toast Animation */
+.toast-show {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-pattern h1 {
+    font-size: 2.5rem;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  nav,
+  .cart-sidebar,
+  #cart-overlay,
+  #toast {
+    display: none !important;
+  }
+}
+/* Base Styles */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.serif {
+  font-family: "Playfair Display", serif;
+}
+
+/* Hero Section Pattern */
+.hero-pattern {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Pattern Background */
+.pattern-bg {
+  background-color: #f8f9fa;
+  background-image: radial-gradient(#e9ecef 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Food Card Hover Effects */
+.food-card:hover .food-img {
+  transform: scale(1.05);
+}
+
+.food-img {
+  transition: transform 0.3s ease;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Spice Level Indicators */
+.spice-level {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.pepper {
+  color: #ef4444;
+}
+
+.no-pepper {
+  color: #d1d5db;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Category Button Active State */
+.category-btn.active {
+  background-color: #16a34a;
+  color: white;
+}
+
+/* Floating WhatsApp Button Animation */
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+  }
+}
+
+.fixed.bottom-6 {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-pattern h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  nav,
+  .fixed {
+    display: none !important;
+  }
+}

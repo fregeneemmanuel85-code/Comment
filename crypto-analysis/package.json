@@ -1,0 +1,25 @@
+{
+  "name": "crypto-analysis",
+  "version": "1.0.0",
+  "description": "Real-time cryptocurrency analytics dashboard",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "vc dev",
+    "deploy": "vc --prod",
+    "warmup": "node scripts/warmup.js"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.34.0"
+  },
+  "keywords": [
+    "crypto",
+    "trading",
+    "signals"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCraft Studio | Premium Frontend Development</title>
+    <meta
+      name="description"
+      content="Expert frontend development services for businesses in Nigeria and UK. React, Vue, modern web solutions."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ==================== PART 1: NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span class="logo-icon">&lt;/&gt;</span>
+          <span class="logo-text">DevCraft</span>
+        </a>
+        <button
+          class="mobile-toggle"
+          id="mobileToggle"
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link cta-nav">Get Quote</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- ==================== PART 2: HERO & ABOUT ==================== -->
+
+    <!-- Section 1: Hero -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Available for projects
+          </div>
+          <h1 class="hero-title">
+            Frontend Development<br />
+            <span class="gradient-text">Without Borders</span>
+          </h1>
+          <p class="hero-subtitle">
+            Bridging the gap between Nigeria and UK with world-class React, Vue,
+            and modern web solutions. Local understanding, global standards.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Countries Served</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: About -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Two Markets, One Standard</h2>
+          <p class="section-subtitle">
+            Understanding local needs while delivering international quality
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🇳🇬</div>
+            <h3>Nigeria Focus</h3>
+            <ul class="about-list">
+              <li>Local payment integration (Paystack, Flutterwave)</li>
+              <li>Mobile-first optimization for 4G networks</li>
+              <li>Cultural design preferences</li>
+              <li>Naira pricing available</li>
+            </ul>
+          </div>
+
+          <div class="about-image">
+            <div class="code-window">
+              <div class="window-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">developer.js</span>
+              </div>
+              <div class="window-content">
+                <pre><code>const developer = {
+    name: "Alex CodeSmith",
+    location: ["Lagos", "London"],
+    expertise: ["React", "Vue", 
+                "Next.js", "Node"],
+    clients: 50,
+    coffee: "∞"
+};</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">🇬🇧</div>
+            <h3>UK Focus</h3>
+            <ul class="about-list">
+              <li>GDPR compliance & data protection</li>
+              <li>Accessibility standards (WCAG 2.1)</li>
+              <li>UK hosting & CDN optimization</li>
+              <li>STEAM/STEM industry experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== PART 3: SERVICES & PORTFOLIO ==================== -->
+
+    <!-- Section 3: Services -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Services</span>
+          <h2 class="section-title">What I Build</h2>
+          <p class="section-subtitle">
+            End-to-end frontend solutions for modern businesses
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3>Web Applications</h3>
+            <p>
+              Scalable React & Vue.js applications with state management, API
+              integration, and progressive enhancement.
+            </p>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Vue</span>
+            <span class="tech-tag">TypeScript</span>
+          </div>
+
+          <div class="service-card featured">
+            <div class="service-badge">Popular</div>
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                ></path>
+              </svg>
+            </div>
+            <h3>E-Commerce Solutions</h3>
+            <p>
+              Custom Shopify themes, WooCommerce customization, and headless
+              commerce with seamless payment integration.
+            </p>
+            <span class="tech-tag">Shopify</span>
+            <span class="tech-tag">Stripe</span>
+            <span class="tech-tag">Paystack</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <h3>UI/UX Implementation</h3>
+            <p>
+              Pixel-perfect Figma to code conversion, design systems, component
+              libraries, and micro-interactions.
+            </p>
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">Framer</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+              </svg>
+            </div>
+            <h3>Performance Optimization</h3>
+            <p>
+              Core Web Vitals optimization, lazy loading, code splitting, and
+              CDN configuration for blazing fast sites.
+            </p>
+            <span class="tech-tag">Lighthouse</span>
+            <span class="tech-tag">Webpack</span>
+            <span class="tech-tag">Vite</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
+            <h3>API Integration</h3>
+            <p>
+              RESTful & GraphQL API integration, third-party service
+              connections, and real-time data handling.
+            </p>
+            <span class="tech-tag">REST</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">Socket.io</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Maintenance & Support</h3>
+            <p>
+              Ongoing support packages, bug fixes, security updates, and feature
+              additions for existing projects.
+            </p>
+            <span class="tech-tag">24/7</span>
+            <span class="tech-tag">SLA</span>
+            <span class="tech-tag">Agile</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Portfolio -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">Recent Projects</h2>
+          <p class="section-subtitle">
+            Real results for real businesses across two continents
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="nigeria">🇳🇬 Nigeria</button>
+          <button class="filter-btn" data-filter="uk">🇬🇧 UK</button>
+          <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-item" data-category="nigeria ecommerce">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder nigeria-gradient">
+                <span>Lagos Fashion Hub</span>
+              </div>
+              <div class="portfolio-overlay">
+                <a href="#" class="portfolio-link">View Case Study</a>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Lagos Fashion Hub</h3>
+              <p>E-commerce platform with Paystack integration</p>
+              <div class="portfolio-tags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Paystack</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="uk">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder uk-gradient">
+                <span>London FinTech</span>
+              </div>
+              <div class="portfolio-overlay">
+                <a href="#" class="portfolio-link">View Case Study</a>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>FinTech Dashboard</h3>
+              <p>Real-time trading interface for UK startup</p>
+              <div class="portfolio-tags">
+                <span>Vue.js</span>
+                <span>D3.js</span>
+                <span>WebSocket</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="nigeria">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder nigeria-gradient">
+                <span>Abuja Logistics</span>
+              </div>
+              <div class="portfolio-overlay">
+                <a href="#" class="portfolio-link">View Case Study</a>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Logistics Tracking App</h3>
+              <p>Real-time delivery tracking system</p>
+              <div class="portfolio-tags">
+                <span>React Native</span>
+                <span>Maps API</span>
+                <span>Firebase</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-item" data-category="uk ecommerce">
+            <div class="portfolio-image">
+              <div class="portfolio-placeholder uk-gradient">
+                <span>Manchester Retail</span>
+              </div>
+              <div class="portfolio-overlay">
+                <a href="#" class="portfolio-link">View Case Study</a>
+              </div>
+            </div>
+            <div class="portfolio-info">
+              <h3>Luxury Retail Store</h3>
+              <p>Headless Shopify with custom checkout</p>
+              <div class="portfolio-tags">
+                <span>Next.js</span>
+                <span>Shopify</span>
+                <span>Stripe</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="portfolio-cta">
+          <a href="#contact" class="btn btn-outline">Discuss Your Project</a>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== PART 4: PROCESS & PRICING ==================== -->
+
+    <!-- Section 5: Process -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">How It Works</span>
+          <h2 class="section-title">Simple Process, Great Results</h2>
+          <p class="section-subtitle">
+            Transparent workflow from first call to launch
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Discovery</h3>
+              <p>
+                We discuss your goals, target audience, and technical
+                requirements. Free 30-minute consultation.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Proposal</h3>
+              <p>
+                Detailed scope of work, timeline, and pricing in your preferred
+                currency (NGN or GBP).
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Design & Build</h3>
+              <p>
+                Agile development with weekly check-ins. You'll see progress in
+                real-time via staging links.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3>Launch & Support</h3>
+              <p>
+                Deployment, training, and 30 days of free support included with
+                every project.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Pricing -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Pricing</span>
+          <h2 class="section-title">Transparent Pricing</h2>
+          <p class="section-subtitle">Choose your currency: 🇳🇬 NGN or 🇬🇧 GBP</p>
+        </div>
+
+        <div class="currency-toggle">
+          <span class="currency-label active" data-currency="ngn"
+            >🇳🇬 Naira</span
+          >
+          <label class="toggle-switch">
+            <input type="checkbox" id="currencyToggle" />
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="currency-label" data-currency="gbp">🇬🇧 Pound</span>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="pricing-name">Landing Page</h3>
+            <p class="pricing-desc">Perfect for product launches</p>
+            <div class="pricing-price">
+              <span class="currency">₦</span>
+              <span class="amount" data-ngn="350000" data-gbp="450"
+                >350,000</span
+              >
+            </div>
+            <ul class="pricing-features">
+              <li>Single page design</li>
+              <li>Mobile responsive</li>
+              <li>Contact form integration</li>
+              <li>Basic SEO setup</li>
+              <li>3 revisions included</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Get Started</a>
+          </div>
+
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <h3 class="pricing-name">Business Website</h3>
+            <p class="pricing-desc">Complete web presence</p>
+            <div class="pricing-price">
+              <span class="currency">₦</span>
+              <span class="amount" data-ngn="750000" data-gbp="950"
+                >750,000</span
+              >
+            </div>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>CMS integration</li>
+              <li>Payment integration</li>
+              <li>Speed optimization</li>
+              <li>5 revisions included</li>
+              <li>1 month support</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3 class="pricing-name">Web Application</h3>
+            <p class="pricing-desc">Custom functionality</p>
+            <div class="pricing-price">
+              <span class="currency">₦</span>
+              <span class="amount" data-ngn="1500000" data-gbp="1900"
+                >1,500,000</span
+              >
+            </div>
+            <ul class="pricing-features">
+              <li>Custom development</li>
+              <li>Database integration</li>
+              <li>User authentication</li>
+              <li>API development</li>
+              <li>Unlimited revisions</li>
+              <li>3 months support</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Get Started</a>
+          </div>
+        </div>
+
+        <div class="pricing-note">
+          <p>
+            💡 All prices are starting points. Final quote depends on specific
+            requirements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title">Client Success Stories</h2>
+          <p class="section-subtitle">
+            From Lagos to London, hear what clients say
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-flag">🇳🇬</div>
+            <div class="testimonial-content">
+              <p>
+                "Delivered our e-commerce platform in 3 weeks. The Paystack
+                integration works flawlessly. Best investment for our Lagos
+                store."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">OA</div>
+              <div class="author-info">
+                <h4>Oluwaseun Adeyemi</h4>
+                <span>CEO, Lagos Fashion Hub</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-flag">🇬🇧</div>
+            <div class="testimonial-content">
+              <p>
+                "Professional, punctual, and technically excellent. Our FinTech
+                dashboard handles real-time data beautifully. Highly recommended
+                for UK startups."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <h4>Sarah Mitchell</h4>
+                <span>CTO, London FinTech Ltd</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-flag">🇳🇬</div>
+            <div class="testimonial-content">
+              <p>
+                "Understanding of local market needs was impressive. The
+                logistics app increased our delivery efficiency by 40%. Great
+                communication throughout."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">CI</div>
+              <div class="author-info">
+                <h4>Chidi Ike</h4>
+                <span>Operations Director, Abuja Logistics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== PART 5: FAQ, CONTACT & FOOTER ==================== -->
+
+    <!-- Section 8: FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title">Common Questions</h2>
+          <p class="section-subtitle">
+            Everything you need to know before starting
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do you work with clients in both Nigeria and UK?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! I actively serve clients in both countries. I understand
+                the unique business environments, payment preferences, and
+                technical requirements of both markets.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What currencies do you accept?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I accept Nigerian Naira (NGN) via bank transfer or Paystack, and
+                British Pounds (GBP) via bank transfer or Stripe. Crypto
+                payments also accepted.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How do we communicate during the project?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I use Slack, WhatsApp, or email—whichever you prefer. For UK
+                clients, I'm available during GMT business hours. For Nigeria,
+                WAT hours. Weekly video calls keep everything on track.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do you provide hosting and domain services?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                I can recommend and set up hosting optimized for your target
+                market—AWS EU for UK clients, AWS Africa or local Nigerian hosts
+                for Nigeria clients. Domain registration assistance included.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What technologies do you specialize in?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                React, Next.js, Vue.js, TypeScript, Tailwind CSS, Node.js. For
+                CMS: WordPress, Shopify, Contentful. I choose the stack that
+                best fits your project needs.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do you offer maintenance packages?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! Monthly retainers available for updates, security patches,
+                and feature additions. Starting from ₦100,000/$250 per month
+                depending on project complexity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to Build Something Amazing?</h2>
+          <p>Let's discuss your project. Free consultation, no commitment.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-white">Get Free Quote</a>
+            <a
+              href="https://calendly.com"
+              target="_blank"
+              class="btn btn-outline-white"
+              >Book Call</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Let's Talk</h2>
+          <p class="section-subtitle">Start your project today</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-card">
+              <h3>📧 Email</h3>
+              <p>hello@devcraft.studio</p>
+            </div>
+            <div class="contact-card">
+              <h3>📱 WhatsApp</h3>
+              <p>+234 801 234 5678</p>
+              <p>+44 7700 900123</p>
+            </div>
+            <div class="contact-card">
+              <h3>⏰ Hours</h3>
+              <p>Mon-Fri: 9AM - 6PM</p>
+              <p>WAT (Nigeria) / GMT (UK)</p>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="location">Your Location</label>
+              <select id="location" name="location" required>
+                <option value="">Select location...</option>
+                <option value="nigeria">Nigeria</option>
+                <option value="uk">United Kingdom</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Select budget...</option>
+                <option value="small">₦300k-500k / £300-500</option>
+                <option value="medium">₦500k-1M / £500-1k</option>
+                <option value="large">₦1M+ / £1k+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">
+              <span class="logo-icon">&lt;/&gt;</span>
+              <span class="logo-text">DevCraft</span>
+            </a>
+            <p>
+              Bridging Nigeria and UK with world-class frontend development.
+              Local understanding, global standards.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Applications</a></li>
+              <li><a href="#services">E-Commerce</a></li>
+              <li><a href="#services">UI/UX Implementation</a></li>
+              <li><a href="#services">Maintenance</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-locations">
+            <h4>Locations</h4>
+            <div class="location">
+              <span class="flag">🇳🇬</span>
+              <div>
+                <strong>Lagos, Nigeria</strong>
+                <p>Available for meetings</p>
+              </div>
+            </div>
+            <div class="location">
+              <span class="flag">🇬🇧</span>
+              <div>
+                <strong>London, UK</strong>
+                <p>Available for meetings</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 DevCraft Studio. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

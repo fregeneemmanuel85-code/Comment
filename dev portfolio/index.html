@@ -1,0 +1,1843 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Developer | Asaba, Nigeria</title>
+    <meta
+      name="description"
+      content="Frontend Web Developer based in Asaba, Delta State, Nigeria. 1+ years experience building modern web applications with React, Vue, and JavaScript."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Cookie Consent Styles */
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: space-between;
+        z-index: 9999;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-top: 3px solid #667eea;
+      }
+
+      .cookie-banner.show {
+        transform: translateY(0);
+      }
+
+      .cookie-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex: 1;
+        min-width: 280px;
+      }
+
+      .cookie-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .cookie-text h3 {
+        color: #1a1a1a;
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .cookie-text p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .cookie-text a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .cookie-text a:hover {
+        text-decoration: underline;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .cookie-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .cookie-btn-primary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .cookie-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+
+      .cookie-btn-secondary {
+        background: #f0f0f0;
+        color: #333;
+      }
+
+      .cookie-btn-secondary:hover {
+        background: #e0e0e0;
+      }
+
+      /* Modal Styles */
+      .cookie-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .cookie-modal-overlay.show {
+        display: flex;
+        opacity: 1;
+      }
+
+      .cookie-modal {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        transform: scale(0.9);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .cookie-modal-overlay.show .cookie-modal {
+        transform: scale(1);
+      }
+
+      .cookie-modal h2 {
+        margin-bottom: 20px;
+        color: #1a1a1a;
+      }
+
+      .cookie-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cookie-option:last-child {
+        border-bottom: none;
+      }
+
+      .cookie-option-info h4 {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 4px;
+      }
+
+      .cookie-option-info p {
+        font-size: 13px;
+        color: #888;
+      }
+
+      .cookie-toggle {
+        position: relative;
+        width: 50px;
+        height: 26px;
+        background: #e0e0e0;
+        border-radius: 13px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .cookie-toggle.active {
+        background: #667eea;
+      }
+
+      .cookie-toggle-slider {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 22px;
+        height: 22px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .cookie-toggle.active .cookie-toggle-slider {
+        transform: translateX(24px);
+      }
+
+      .cookie-modal-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        margin-top: 24px;
+      }
+
+      @media (max-width: 768px) {
+        .cookie-banner {
+          flex-direction: column;
+          text-align: center;
+          padding: 20px;
+        }
+        .cookie-content {
+          flex-direction: column;
+          min-width: auto;
+        }
+        .cookie-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+        .cookie-actions {
+          width: 100%;
+          justify-content: center;
+        }
+        .cookie-modal {
+          padding: 24px;
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-brand">OE.</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="home" class="hero">
+      <div class="hero-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          Frontend Developer Based in Asaba, Nigeria
+        </div>
+        <h1 class="hero-title">
+          <span class="line">Building Digital</span>
+          <span class="line accent">Experiences</span>
+          <span class="line">That Matter</span>
+        </h1>
+        <p class="hero-description">
+          I'm a passionate frontend developer with 1 year 3 months of experience
+          crafting responsive, user-friendly web applications. I transform ideas
+          into clean, functional code using React, Vue, and modern JavaScript.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="1.25">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="8">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="5">0</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- Section 2: About -->
+    <section id="about" class="about section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">About Me</span>
+          <h2 class="section-title">Behind The Code</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-image">
+            <div class="image-frame">
+              <div class="image-placeholder">
+                <span>OE</span>
+              </div>
+              <div class="experience-badge">
+                <span class="exp-number">1.3</span>
+                <span class="exp-text">Years of<br />Experience</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-content">
+            <h3 class="about-heading">
+              Passionate about creating meaningful digital products
+            </h3>
+            <p class="about-text">
+              I'm Official Emi, a frontend developer based in Asaba, Delta
+              State, Nigeria. My journey into web development started with a
+              deep curiosity for how websites work, which led me to become a
+              self-taught developer through online learning, hands-on projects,
+              and continuous improvement.
+            </p>
+            <p class="about-text">
+              With 1 year and 3 months of hands-on experience, I've worked with
+              startups and local businesses in Nigeria to build responsive
+              websites and web applications. I specialize in React, Vue.js, and
+              modern CSS frameworks like Tailwind.
+            </p>
+            <div class="about-details">
+              <div class="detail">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Asaba, Delta State, Nigeria</span>
+              </div>
+              <div class="detail">
+                <span class="detail-label">Availability</span>
+                <span class="detail-value status-available"
+                  >Open for projects</span
+                >
+              </div>
+              <div class="detail">
+                <span class="detail-label">Email</span>
+                <span class="detail-value">dreamvisual011@gmail.com</span>
+              </div>
+            </div>
+            <a href="./resume.html" class="btn btn-outline">
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section id="services" class="services section-padding bg-dark">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-eyebrow">What I Do</span>
+          <h2 class="section-title">Services & Expertise</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card" data-service="frontend">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Frontend Development</h3>
+            <p class="service-description">
+              Building responsive, performant web applications using React, Vue,
+              and modern JavaScript. Focus on accessibility and cross-browser
+              compatibility.
+            </p>
+            <ul class="service-features">
+              <li>React & Vue.js</li>
+              <li>JavaScript (ES6+)</li>
+              <li>Responsive Design</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </div>
+          <div class="service-card" data-service="ui">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-description">
+              Creating intuitive user interfaces and seamless user experiences.
+              From wireframes to high-fidelity prototypes using Figma.
+            </p>
+            <ul class="service-features">
+              <li>User Interface Design</li>
+              <li>Wireframing</li>
+              <li>Prototyping</li>
+              <li>Figma & Adobe XD</li>
+            </ul>
+          </div>
+          <div class="service-card" data-service="animation">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polygon
+                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                ></polygon>
+              </svg>
+            </div>
+            <h3 class="service-title">Web Animation</h3>
+            <p class="service-description">
+              Bringing interfaces to life with smooth, meaningful animations.
+              Using CSS animations and JavaScript to enhance user engagement.
+            </p>
+            <ul class="service-features">
+              <li>CSS Animations</li>
+              <li>GSAP</li>
+              <li>Scroll Interactions</li>
+              <li>Micro-interactions</li>
+            </ul>
+          </div>
+          <div class="service-card" data-service="wordpress">
+            <div class="service-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="service-title">WordPress Development</h3>
+            <p class="service-description">
+              Custom WordPress theme development and website customization for
+              businesses. Helping Nigerian businesses establish their online
+              presence.
+            </p>
+            <ul class="service-features">
+              <li>Theme Customization</li>
+              <li>Plugin Integration</li>
+              <li>E-commerce (WooCommerce)</li>
+              <li>Website Maintenance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Skills -->
+    <section id="skills" class="skills section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Technical Stack</span>
+          <h2 class="section-title">Skills & Technologies</h2>
+        </div>
+        <div class="skills-container">
+          <div class="skills-categories">
+            <button class="skill-tab active" data-category="frontend">
+              Frontend
+            </button>
+            <button class="skill-tab" data-category="tools">
+              Tools & Workflow
+            </button>
+            <button class="skill-tab" data-category="design">Design</button>
+          </div>
+          <div class="skills-content">
+            <div class="skills-grid active" data-category="frontend">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5 & CSS3</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript (ES6+)</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">React.js</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Vue.js</span>
+                  <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Tailwind CSS</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 88%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skills-grid" data-category="tools">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Git & GitHub</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">VS Code</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">NPM & Webpack</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">WordPress</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skills-grid" data-category="design">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Figma</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Adobe XD</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Responsive Design</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Experience -->
+    <section id="experience" class="experience section-padding bg-dark">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-eyebrow">Career Path</span>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          <!-- Current Role (3 months) -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jan 2026 - Present</span>
+              <h3 class="timeline-title">Frontend Developer</h3>
+              <span class="timeline-company">TechStart Asaba</span>
+              <p class="timeline-desc">
+                Building responsive web applications for local businesses in
+                Delta State. Collaborating with the design team to implement
+                modern React components and optimize website performance.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">React</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Previous Role (1 year) -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jan 2025 - Dec 2025</span>
+              <h3 class="timeline-title">Junior Web Developer</h3>
+              <span class="timeline-company">Digital Agency Asaba</span>
+              <p class="timeline-desc">
+                Started my professional journey building websites for Nigerian
+                businesses. Learned modern JavaScript frameworks and responsive
+                design while working on WordPress and custom frontend projects.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">WordPress</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education/Bootcamp -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jul 2024 - Dec 2024</span>
+              <h3 class="timeline-title">Web Development Bootcamp</h3>
+              <span class="timeline-company">Online Learning Platform</span>
+              <p class="timeline-desc">
+                Intensive 6-month program covering modern frontend development.
+                Built 5+ portfolio projects including e-commerce sites,
+                dashboards, and interactive web applications.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Portfolio -->
+    <!-- Section 6: Portfolio -->
+    <section id="portfolio" class="portfolio section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Selected Work</span>
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="portfolio-grid">
+          <!-- Project 1: Laurel-G Dezyn's -->
+          <div class="portfolio-item" data-category="ecommerce">
+            <a href="#" class="portfolio-scroll-container">
+              <img
+                src="./images/laurel-g.jpeg"
+                alt="Laurel-G Dezyn's Fashion Website"
+                class="portfolio-image-scroll"
+              />
+            </a>
+            <a
+              href="https://laurel-g-dezyns.netlify.app"
+              target="_blank"
+              class="portfolio-link"
+              >laurel-g-dezyns.netlify.app</a
+            >
+          </div>
+
+          <!-- Add more projects with their actual images -->
+          <div class="portfolio-item" data-category="ecommerce">
+            <a href="#" class="portfolio-scroll-container">
+              <img
+                src="./images/dreamvisual.jpeg"
+                alt="dreamvisual website"
+                class="portfolio-image-scroll"
+              />
+            </a>
+            <a
+              href="https://dream-visual011.netlify.app/"
+              target="_blank"
+              class="portfolio-link"
+              >dream-visual011.netlify.app/</a
+            >
+          </div>
+
+          <!-- Project 3 -->
+          <div class="portfolio-item" data-category="web">
+            <a href="#" class="portfolio-scroll-container">
+              <img
+                src="./images/crypto-analysis.jpeg"
+                alt="crypto-analysis-app website"
+                class="portfolio-image-scroll"
+              />
+            </a>
+            <a
+              href="https://crypto-analysis-flax.vercel.app/"
+              target="_blank"
+              class="portfolio-link"
+              >crypto-analysis-flax.vercel.app/</a
+            >
+          </div>
+
+          <!-- Project 4 -->
+          <div class="portfolio-item" data-category="web">
+            <a href="#" class="portfolio-scroll-container">
+              <img
+                src="./images/weather-atmosphere.jpeg"
+                alt="weather-atmosphere-app Website"
+                class="portfolio-image-scroll"
+              />
+            </a>
+            <a
+              href="https://weather-atmosphere-app.netlify.app/"
+              target="_blank"
+              class="portfolio-link"
+              >weather-atmosphere-app.netlify.app/</a
+            >
+          </div>
+
+          <!-- Project 5 -->
+          <div class="portfolio-item" data-category="wordpress">
+            <a href="#" class="portfolio-scroll-container">
+              <img
+                src="./images/victor-designs.netlify.app.jpeg"
+                alt="weather-atmosphere-app Website"
+                class="portfolio-image-scroll"
+              />
+            </a>
+            <a
+              href="https://victor-designs.netlify.app/"
+              target="_blank"
+              class="portfolio-link"
+              >victor-designs.netlify.app/</a
+            >
+          </div>
+          <!-- Project 6 -->
+          <div class="portfolio-item" data-category="ecommerce">
+            <a
+              href="project-fashionhub.html"
+              class="portfolio-scroll-container"
+            >
+              <div
+                class="portfolio-image-scroll"
+                style="
+                  background: linear-gradient(
+                    180deg,
+                    #a8edea 0%,
+                    #fed6e3 30%,
+                    #667eea 60%,
+                    #764ba2 100%
+                  );
+                "
+              ></div>
+            </a>
+            <a
+              href="https://fashionhub.ng"
+              target="_blank"
+              class="portfolio-link"
+              >fashionhub.ng</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Process -->
+    <section id="process" class="process section-padding bg-dark">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-eyebrow">How I Work</span>
+          <h2 class="section-title">My Process</h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <h3 class="process-title">Discovery</h3>
+            <p class="process-desc">
+              Understanding your business goals, target audience, and project
+              requirements through detailed discussions and research.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              </svg>
+            </div>
+            <h3 class="process-title">Planning</h3>
+            <p class="process-desc">
+              Creating wireframes, user flows, and technical architecture to
+              ensure a solid foundation for the project.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="process-title">Design</h3>
+            <p class="process-desc">
+              Crafting pixel-perfect visual designs with attention to
+              typography, color theory, and mobile responsiveness.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">04</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="process-title">Development</h3>
+            <p class="process-desc">
+              Writing clean, maintainable code with modern frameworks.
+              Implementing responsive designs and interactive features.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">05</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="process-title">Testing</h3>
+            <p class="process-desc">
+              Rigorous testing across devices and browsers to ensure quality,
+              performance, and accessibility standards.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">06</div>
+            <div class="process-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="process-title">Launch</h3>
+            <p class="process-desc">
+              Deploying to production with proper configuration. Providing
+              training and documentation for smooth handover.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Testimonials -->
+    <section id="testimonials" class="testimonials section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Client Feedback</span>
+          <h2 class="section-title">What They Say</h2>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonials-track">
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <p class="testimonial-text">
+                "Emi delivered our company website ahead of schedule and
+                exceeded our expectations. His attention to detail and
+                understanding of our business needs was impressive."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">OC</div>
+                <div class="author-info">
+                  <h4>Obinna Chukwu</h4>
+                  <span>CEO, Asaba Logistics</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <p class="testimonial-text">
+                "Working with Emi was a great experience. He transformed our
+                outdated website into a modern, responsive platform that has
+                increased our online inquiries significantly."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">LI</div>
+                <div class="author-info">
+                  <h4>Laura Iboyi</h4>
+                  <span>CEO, Laura-G-Dezyns</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <p class="testimonial-text">
+                "Professional, skilled, and reliable. Emi built our e-commerce
+                site and we've seen a 40% increase in sales since launch. Highly
+                recommend his services."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">EI</div>
+                <div class="author-info">
+                  <h4>Emeka Ibe</h4>
+                  <span>Manager, ShopNaija Asaba</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonials-nav">
+            <button class="testimonial-btn prev">←</button>
+            <button class="testimonial-btn next">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Blog -->
+    <section id="blog" class="blog section-padding bg-dark">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-eyebrow">Latest Insights</span>
+          <h2 class="section-title">From The Blog</h2>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card featured">
+            <div class="blog-image">
+              <div
+                class="blog-placeholder"
+                style="
+                  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                "
+              >
+                <span>React</span>
+              </div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-category">Development</span>
+                <span class="blog-date">Mar 15, 2026</span>
+              </div>
+              <h3 class="blog-title">
+                Getting Started with React: A Beginner's Guide for Nigerian
+                Developers
+              </h3>
+              <p class="blog-excerpt">
+                My journey learning React and tips for aspiring developers in
+                Nigeria looking to break into frontend development.
+              </p>
+              <a href="./react.html" class="blog-link">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-image">
+              <div
+                class="blog-placeholder"
+                style="
+                  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                "
+              >
+                <span>CSS</span>
+              </div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-category">CSS</span>
+                <span class="blog-date">Mar 10, 2026</span>
+              </div>
+              <h3 class="blog-title">Mastering Flexbox and Grid Layouts</h3>
+              <p class="blog-excerpt">
+                Essential CSS layout techniques every modern web developer
+                should know.
+              </p>
+              <a href="./css.html" class="blog-link">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-image">
+              <div
+                class="blog-placeholder"
+                style="
+                  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                "
+              >
+                <span>Basics</span>
+              </div>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-category">Beginners</span>
+                <span class="blog-date">Mar 5, 2026</span>
+              </div>
+              <h3 class="blog-title">
+                My First Year as a Developer: Lessons Learned
+              </h3>
+              <p class="blog-excerpt">
+                Reflections on my journey as a self-taught developer, building
+                skills and growing into a professional in Asaba.
+              </p>
+              <a href="./basics.html" class="blog-link">Read More →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Contact -->
+    <section id="contact" class="contact section-padding">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <span class="section-eyebrow">Get In Touch</span>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="contact-desc">
+              Have a project in mind? I'm available for freelance work and open
+              to new opportunities. Based in Asaba, Delta State, Nigeria, I work
+              with clients locally and remotely.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <span class="label">Email</span>
+                  <a href="mailto:dreamvisual011@gmail.com"
+                    >dreamvisual011@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <span class="label">Location</span>
+                  <span>Asaba, Delta State, Nigeria</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <span class="label">Response Time</span>
+                  <span>Within 24 hours</span>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://x.com/OfficialEmi01"
+                target="_blank"
+                class="social-link"
+                style="width: 35px; height: 35px"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/official-codes"
+                target="_blank"
+                class="social-link"
+                style="width: 35px; height: 35px"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com/yourusername"
+                target="_blank"
+                class="social-link instagram"
+                style="width: 35px; height: 35px"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Column 1: Brand & Newsletter -->
+          <div class="footer-brand-col">
+            <div class="footer-brand">OE.</div>
+            <p class="footer-tagline">
+              Frontend developer based in Asaba, Nigeria. Building digital
+              experiences for businesses across Delta State and beyond.
+            </p>
+
+            <div class="footer-newsletter">
+              <h4>Stay Updated</h4>
+              <p>Subscribe for web development tips and insights.</p>
+              <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">→</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-links-col">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-links-col">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+              <li><a href="./frontend.html">Frontend Development</a></li>
+              <li><a href="./wordpress.html">WordPress Development</a></li>
+              <li><a href="./animation.html">Web Animation</a></li>
+              <li><a href="./maintainance.html">Website Maintenance</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Resources -->
+          <div class="footer-links-col">
+            <h4 class="footer-heading">Resources</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="./faq.html">FAQ</a>
+              </li>
+              <li>
+                <a href="./resume.html">Download Resume</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 5: Connect -->
+          <div class="footer-connect-col">
+            <h4 class="footer-heading">Connect</h4>
+            <div class="footer-contact">
+              <a href="mailto:dreamvisual011@gmail.com" class="footer-email"
+                >dreamvisual011@gmail.com</a
+              >
+              <span class="footer-location">Asaba, Delta State, Nigeria</span>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://x.com/OfficialEmi01"
+                target="_blank"
+                class="social-link"
+                style="width: 35px; height: 35px"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/official-codes"
+                target="_blank"
+                class="social-link"
+                style="width: 35px; height: 35px"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com/yourusername"
+                target="_blank"
+                class="social-link instagram"
+                style="width: 35px; height: 35px"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <span class="copyright"
+              >© 2026 Official Emi. All rights reserved.</span
+            >
+            <div class="legal-links">
+              <a href="./privacy.html">Privacy Policy</a>
+              <span class="separator">•</span>
+              <a href="./terms.html">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-credit">
+            <span>Designed & Built with ♥ in Asaba, Nigeria</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+      <div class="cookie-content">
+        <div class="cookie-icon">🍪</div>
+        <div class="cookie-text">
+          <h3>We value your privacy</h3>
+          <p>
+            We use cookies to enhance your experience.
+            <strong>Analytics:</strong> Helps us improve our website.
+            <strong>Marketing:</strong> Shows relevant ads.
+            <a
+              href="#"
+              onclick="
+                cookieManager.openPreferences();
+                return false;
+              "
+              >Manage Preferences</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="cookie-actions">
+        <button
+          class="cookie-btn cookie-btn-secondary"
+          onclick="cookieManager.declineAll()"
+        >
+          Decline All
+        </button>
+        <button
+          class="cookie-btn cookie-btn-primary"
+          onclick="cookieManager.acceptAll()"
+        >
+          Accept All
+        </button>
+      </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div id="cookieModal" class="cookie-modal-overlay">
+      <div class="cookie-modal">
+        <h2>📋 Cookie Preferences</h2>
+
+        <div class="cookie-option">
+          <div class="cookie-option-info">
+            <h4>Essential Cookies</h4>
+            <p>Required for the site to function</p>
+          </div>
+          <div
+            class="cookie-toggle active"
+            data-category="essential"
+            onclick="cookieManager.toggleCategory(this)"
+          >
+            <div class="cookie-toggle-slider"></div>
+          </div>
+        </div>
+
+        <div class="cookie-option">
+          <div class="cookie-option-info">
+            <h4>Analytics Cookies</h4>
+            <p>Helps us improve our website</p>
+          </div>
+          <div
+            class="cookie-toggle"
+            data-category="analytics"
+            onclick="cookieManager.toggleCategory(this)"
+          >
+            <div class="cookie-toggle-slider"></div>
+          </div>
+        </div>
+
+        <div class="cookie-option">
+          <div class="cookie-option-info">
+            <h4>Marketing Cookies</h4>
+            <p>Used to deliver relevant advertisements</p>
+          </div>
+          <div
+            class="cookie-toggle"
+            data-category="marketing"
+            onclick="cookieManager.toggleCategory(this)"
+          >
+            <div class="cookie-toggle-slider"></div>
+          </div>
+        </div>
+
+        <div class="cookie-option">
+          <div class="cookie-option-info">
+            <h4>Personalization</h4>
+            <p>Remember your preferences and settings</p>
+          </div>
+          <div
+            class="cookie-toggle"
+            data-category="personalization"
+            onclick="cookieManager.toggleCategory(this)"
+          >
+            <div class="cookie-toggle-slider"></div>
+          </div>
+        </div>
+
+        <div class="cookie-modal-actions">
+          <button
+            class="cookie-btn cookie-btn-secondary"
+            onclick="cookieManager.closePreferences()"
+          >
+            Cancel
+          </button>
+          <button
+            class="cookie-btn cookie-btn-primary"
+            onclick="cookieManager.savePreferences()"
+          >
+            Save Preferences
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const CookieManager = {
+        config: {
+          cookieName: "user_cookie_consent_v2",
+          expiryDays: 365,
+          categories: {
+            essential: {
+              required: true,
+              description: "Required for the site to function",
+            },
+            analytics: {
+              required: false,
+              description: "Helps us improve our website",
+            },
+            marketing: {
+              required: false,
+              description: "Used to deliver relevant advertisements",
+            },
+            personalization: {
+              required: false,
+              description: "Remember your preferences and settings",
+            },
+          },
+        },
+
+        preferences: {
+          essential: true,
+          analytics: false,
+          marketing: false,
+          personalization: false,
+        },
+
+        init() {
+          this.loadPreferences();
+
+          if (!this.hasConsented()) {
+            setTimeout(() => this.showBanner(), 800);
+          } else {
+            this.enableCookies();
+          }
+
+          window.cookieManager = this;
+        },
+
+        hasConsented() {
+          const consent = this.getCookie(this.config.cookieName);
+          if (!consent) return false;
+
+          try {
+            const parsed = JSON.parse(consent);
+            const age = Date.now() - parsed.timestamp;
+            const maxAge = this.config.expiryDays * 24 * 60 * 60 * 1000;
+            return parsed && parsed.version === "2.0" && age < maxAge;
+          } catch (e) {
+            return false;
+          }
+        },
+
+        showBanner() {
+          document.getElementById("cookieBanner").classList.add("show");
+        },
+
+        hideBanner() {
+          document.getElementById("cookieBanner").classList.remove("show");
+        },
+
+        openPreferences() {
+          document.getElementById("cookieModal").classList.add("show");
+          this.syncToggleStates();
+        },
+
+        closePreferences() {
+          document.getElementById("cookieModal").classList.remove("show");
+        },
+
+        toggleCategory(element) {
+          const category = element.dataset.category;
+          if (category === "essential") return;
+          this.preferences[category] = !this.preferences[category];
+          element.classList.toggle("active");
+        },
+
+        syncToggleStates() {
+          document.querySelectorAll(".cookie-toggle").forEach((toggle) => {
+            const category = toggle.dataset.category;
+            if (this.preferences[category]) {
+              toggle.classList.add("active");
+            } else {
+              toggle.classList.remove("active");
+            }
+          });
+        },
+
+        acceptAll() {
+          Object.keys(this.preferences).forEach((key) => {
+            this.preferences[key] = true;
+          });
+          this.savePreferences();
+          this.hideBanner();
+          this.enableCookies();
+        },
+
+        declineAll() {
+          Object.keys(this.preferences).forEach((key) => {
+            if (!this.config.categories[key].required) {
+              this.preferences[key] = false;
+            }
+          });
+          this.savePreferences();
+          this.hideBanner();
+        },
+
+        savePreferences() {
+          const consentData = {
+            version: "2.0",
+            timestamp: Date.now(),
+            preferences: this.preferences,
+          };
+
+          const expires = new Date();
+          expires.setTime(
+            expires.getTime() + this.config.expiryDays * 24 * 60 * 60 * 1000,
+          );
+
+          document.cookie = `${this.config.cookieName}=${encodeURIComponent(JSON.stringify(consentData))};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+
+          console.log("[CookieManager] Saved:", this.preferences);
+
+          this.enableCookies();
+          this.hideBanner();
+          this.closePreferences();
+        },
+
+        loadPreferences() {
+          const consent = this.getCookie(this.config.cookieName);
+          if (consent) {
+            try {
+              const parsed = JSON.parse(consent);
+              this.preferences = parsed.preferences || this.preferences;
+            } catch (e) {
+              console.log("[CookieManager] Using defaults");
+            }
+          }
+        },
+
+        getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(";").shift();
+          return null;
+        },
+
+        deleteCookie(name) {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+        },
+
+        enableGoogleAnalytics() {
+          if (!this.preferences.analytics) {
+            console.log("[Analytics] No consent - GA4 not loaded");
+            return;
+          }
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+
+          const script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+          document.head.appendChild(script);
+
+          gtag("js", new Date());
+          gtag("config", "G-XXXXXXXXXX", {
+            anonymize_ip: true,
+            allow_google_signals: false,
+            restricted_data_processing: false,
+            send_page_view: false,
+          });
+
+          gtag("consent", "update", {
+            analytics_storage: "granted",
+            ad_storage: this.preferences.marketing ? "granted" : "denied",
+            ad_user_data: this.preferences.marketing ? "granted" : "denied",
+            ad_personalization: this.preferences.marketing
+              ? "granted"
+              : "denied",
+          });
+
+          console.log("[Analytics] GA4 loaded with consent mode");
+        },
+
+        enableMetaPixel() {
+          if (!this.preferences.marketing) {
+            console.log("[Marketing] No consent - Meta Pixel not loaded");
+            return;
+          }
+
+          !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+              n.callMethod
+                ? n.callMethod.apply(n, arguments)
+                : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js",
+          );
+
+          fbq("init", "YOUR_PIXEL_ID");
+          fbq("track", "PageView");
+
+          console.log("[Marketing] Meta Pixel loaded");
+        },
+
+        enableClarity() {
+          if (!this.preferences.analytics) {
+            console.log("[Analytics] No consent - Clarity not loaded");
+            return;
+          }
+
+          (function (c, l, a, r, i, t, y) {
+            c[a] =
+              c[a] ||
+              function () {
+                (c[a].q = c[a].q || []).push(arguments);
+              };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+          })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+
+          console.log("[Analytics] Microsoft Clarity loaded");
+        },
+
+        enableCustomAnalytics() {
+          if (!this.preferences.analytics) return;
+
+          fetch("/api/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              event: "page_view",
+              timestamp: Date.now(),
+              url: window.location.href,
+              consent: true,
+            }),
+          });
+
+          console.log("[Analytics] Custom tracking sent");
+        },
+
+        enableCookies() {
+          console.log(
+            "[CookieManager] Enabling cookies based on preferences...",
+          );
+
+          if (this.preferences.analytics) {
+            this.enableGoogleAnalytics();
+            this.enableClarity();
+            this.enableCustomAnalytics();
+          }
+
+          if (this.preferences.marketing) {
+            this.enableMetaPixel();
+            console.log("[Marketing] Marketing cookies enabled");
+          }
+
+          if (this.preferences.personalization) {
+            console.log("[Personalization] Personalization enabled");
+          }
+        },
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => {
+          CookieManager.init();
+        });
+      } else {
+        CookieManager.init();
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

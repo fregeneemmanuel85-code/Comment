@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corporate Styling | Professional Fashion Solutions</title>
+
+    <title>Corporate Styling | Professional Wear Asaba | Laurel-G Dezyns</title>
+    <meta
+      name="description"
+      content="Corporate styling and professional wear solutions in Asaba, Delta State."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://laurel-g-dezyns.netlify.app/corporate.html"
+    />
+
+    <meta property="og:title" content="Corporate Styling | Laurel-G Dezyns" />
+    <meta
+      property="og:description"
+      content="Professional business wear and uniform solutions."
+    />
+    <meta
+      property="og:image"
+      content="https://laurel-g-dezyns.netlify.app/images/og-corporate.jpg"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: #2c2c2c;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: #fff;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        text-decoration: none;
+        letter-spacing: -0.5px;
+      }
+
+      .back-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+
+      .back-link:hover {
+        color: #1a1a1a;
+      }
+
+      .hero {
+        padding: 80px 0 60px;
+        text-align: center;
+      }
+
+      .service-icon-large {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        color: #fff;
+        box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+      }
+
+      .hero h1 {
+        font-size: 56px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        letter-spacing: -2px;
+      }
+
+      .hero h1 span {
+        font-weight: 600;
+        display: block;
+        color: #2c3e50;
+      }
+
+      .hero-description {
+        font-size: 20px;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: #2c3e50;
+        display: block;
+      }
+
+      .stat-label {
+        color: #999;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .services-detail {
+        padding: 60px 0;
+        background: #fff;
+        margin: 40px 0;
+        border-radius: 30px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #999;
+        margin-bottom: 40px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .service-item {
+        padding: 40px;
+        border: 1px solid #e9ecef;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+
+      .service-item:hover {
+        border-color: #3498db;
+        box-shadow: 0 10px 40px rgba(52, 152, 219, 0.1);
+      }
+
+      .service-item-icon {
+        width: 60px;
+        height: 60px;
+        background: #f8f9fa;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      .service-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .service-item p {
+        color: #666;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .benefits {
+        padding: 60px 0;
+      }
+
+      .benefits-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .benefit-card {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .benefit-icon {
+        width: 40px;
+        height: 40px;
+        background: #2c3e50;
+        color: #fff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .benefit-content h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .benefit-content p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .cta {
+        padding: 100px 0;
+        text-align: center;
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: #fff;
+        margin-top: 60px;
+        border-radius: 30px;
+      }
+
+      .cta h2 {
+        font-size: 42px;
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: #2c3e50;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        color: #999;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .stats {
+          gap: 30px;
+        }
+
+        .stat-number {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">Laurel-G</a>
+          <a href="./index.html#services" class="back-link">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to Services
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="service-icon-large">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h1>Corporate <span>Styling</span></h1>
+          <p class="hero-description">
+            Elevate your brand image with uniform solutions and executive
+            styling services for teams and organizations of any size.
+          </p>
+
+          <div class="stats">
+            <div class="stat-item">
+              <span class="stat-number">200+</span>
+              <span class="stat-label">Corporate Clients</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">650</span>
+              <span class="stat-label">Uniforms Delivered</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <section class="services-detail">
+          <h2 class="section-title">Our Corporate Services</h2>
+          <div class="services-grid">
+            <div class="service-item">
+              <div class="service-item-icon">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  />
+                </svg>
+              </div>
+              <h3>Brand Identity Integration</h3>
+              <p>
+                We translate your brand values into cohesive uniform designs
+                that reinforce your corporate identity and create lasting
+                impressions.
+              </p>
+            </div>
+            <div class="service-item">
+              <div class="service-item-icon">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <h3>Bulk Ordering</h3>
+              <p>
+                Streamlined processes for large-scale orders with consistent
+                quality control, sizing management, and timely delivery across
+                all locations.
+              </p>
+            </div>
+            <div class="service-item">
+              <div class="service-item-icon">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3>Style Workshops</h3>
+              <p>
+                Interactive training sessions for your team on professional
+                dressing, personal branding, and making the most of your
+                corporate wardrobe.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="benefits">
+          <h2 class="section-title">Why Choose Us</h2>
+          <div class="benefits-list">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="benefit-content">
+                <h4>Consistent Quality</h4>
+                <p>
+                  Every piece meets our exacting standards, ensuring your team
+                  looks polished and professional.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="benefit-content">
+                <h4>Scalable Solutions</h4>
+                <p>
+                  From startups to enterprises, we adapt our services to match
+                  your organization's growth and evolving needs.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="benefit-content">
+                <h4>Dedicated Support</h4>
+                <p>
+                  A dedicated account manager ensures seamless communication and
+                  rapid response to all your needs.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="benefit-content">
+                <h4>Sustainable Options</h4>
+                <p>
+                  Eco-friendly materials and ethical manufacturing practices
+                  that align with your corporate social responsibility goals.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container">
+        <section class="cta">
+          <h2>Transform Your Team's Image</h2>
+          <p>
+            Let's discuss how we can elevate your corporate identity through
+            strategic styling.
+          </p>
+          <a href="./contact.html" class="btn-primary">
+            Schedule Consultation
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Laurel-G Dezyns and Fashionique collections. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./seo-config.js"></script>
+  </body>
+</html>

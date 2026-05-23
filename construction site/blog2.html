@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6-Inch vs 9-Inch Blocks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="progressBar"></div>
+    <!-- DARK MODE TOGGLE BUTTON -->
+    <button id="darkToggle" class="dark-toggle">🌙</button>
+    <section class="blog-post">
+      <h1 id="section1">6-Inch vs 9-Inch Blocks: Which One Should You Use?</h1>
+
+      <p>
+        6-inch blocks are commonly used for partition walls and small
+        structures. They are lighter and more affordable.
+      </p>
+
+      <p>
+        9-inch blocks are stronger and suitable for load-bearing walls. They
+        provide better structural support for large buildings.
+      </p>
+
+      <p>
+        Choosing the right block depends on your building design and structural
+        requirements. Always consult professionals before deciding.
+      </p>
+
+      <a href="index.html" class="blog-btn">← Back to Home</a>
+    </section>
+    <script>
+      // DARK MODE
+      const toggle = document.getElementById("darkToggle");
+      toggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+      });
+    </script>
+  </body>
+</html>
